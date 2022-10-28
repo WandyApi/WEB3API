@@ -11,5 +11,5 @@ Telegram Community: https://t.me/blackcatweb3developerclub
 
 Official Website: https://www.WandyApi.xyz
 
-#Buidlers, let us code a WEB3 world.
+#Buidlers, let us code the WEB3 world.
 
