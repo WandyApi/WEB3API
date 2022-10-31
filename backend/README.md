@@ -1,0 +1,6 @@
+
+**WandyApi Backend**
+
+- firebase
+- aws
+
