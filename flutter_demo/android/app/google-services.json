@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415532161159",
+    "project_id": "wandyapidemo",
+    "storage_bucket": "wandyapidemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415532161159:android:15c2cd095c5cdbbe9e8022",
+        "android_client_info": {
+          "package_name": "xyz.wandyapi.flutter_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415532161159-lf9pkd8p1ihrmbfhjnoh6gup8f48g1pu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn5ee6tj0heXW-bEnujofEr2ERrXygJvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415532161159-lf9pkd8p1ihrmbfhjnoh6gup8f48g1pu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

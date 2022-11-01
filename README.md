@@ -1,6 +1,8 @@
 
 **WandyApi Version 0.50**
 
+*WandyApi will be officially released @11/01/2022*
+
 Please refer to the **user manual** to get more details about the API implementation.
 
 Please join **Black Cat Web3 Developer Club** to get more supports.
