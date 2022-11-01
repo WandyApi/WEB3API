@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'constants.dart';
 import 'firebase_options.dart';
 import 'api_calls.dart';
 
@@ -40,18 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
   String seedsPhrase = '';
   String walletAddress = '';
   int network = 0;
-  double balance = 0.0;
-
-  Future<void> _incrementCounter() async {
-      seedsPhrase ='vivid lava apple exotic reform clap pioneer blind uncle lawsuit drop label'; //generateMnemonic();
-      print(seedsPhrase);
-      walletAddress = await createWallet(0, seedsPhrase);
-      balance = await getBalance(0,seedsPhrase, SOL.tokenAddress);
-      balance = balance / pow(10, SOL.decimals);
-    setState(() {
-
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () {
+
                   },
                   child: const Text('Get Balance'),
                 )
