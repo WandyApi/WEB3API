@@ -93,7 +93,7 @@ exports.transfer = functions.https.onCall(async (req, res) => {
 })
 
 
-exports.getNFTs = functions.https.onCall(async (req, res) => {
+exports.getNFTsByOwner = functions.https.onCall(async (req, res) => {
   
   const result = {
     'contractAddress': '',
@@ -102,32 +102,31 @@ exports.getNFTs = functions.https.onCall(async (req, res) => {
     'tokenId': '',
     'symbol': '',
     'tokenType': '',
-    'thumbnail': '',
+    'image': '',
     'format': '',
     'price': 0,
-    'balance': '1',
-    'totalSupply': '1',
+    'balance': '0',
     'walletAddress': req.walletAddress,
-    'market': '',
+    'externalUrl': '',
     'error': 'Network not found'
   };
 
   var jsonResult = JSON.stringify(result, null, 2);
 
   if(req.network == 0) {
-    jsonResult = await solana.getNFTs(req, res)
+    jsonResult = await solana.getNFTsByOwner(req, res)
   }
 
   // if(req.network == 1) {
-  //    jsonResult = await binance.getNFTs(req, res)
+  //    jsonResult = await binance.getNFTsByOwner(req, res)
   // }
 
   // if(req.network == 2) {
-  //    jsonResult = await eth.getNFTs(req, res)
+  //    jsonResult = await eth.getNFTsByOwner(req, res)
   // }
 
   // if(req.network == 3) {
-  //   jsonResult = await ethw.getNFTs(req, res)
+  //   jsonResult = await ethw.getNFTsByOwner(req, res)
   // }
 
   return jsonResult;

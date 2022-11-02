@@ -227,8 +227,8 @@ exports.getEstimateGasFee = async (req, res) => {
       return jsonResult;
 }
 
-// async function getNFTs(walletAddress){   
-exports.getNFTs = async (req, res) => {
+// async function getNFTsByOwner(walletAddress){   
+exports.getNFTsByOwner = async (req, res) => {
 
     const walletAddress = req.walletAddress;
 
@@ -318,13 +318,12 @@ async function getNFTMetadata(walletAddress, mintAddress){
                 'tokenId': '',
                 'symbol': symbol,
                 'tokenType': standard,
-                'thumbnail': image,
+                'image': image,
                 'format': '',
                 'price': price,
                 'balance': '1',
-                'totalSupply': '1',
                 'walletAddress': walletAddress,
-                'market': external_url,
+                'externalUrl': external_url,
                 'error' : ''
               };
         } else {
@@ -335,13 +334,12 @@ async function getNFTMetadata(walletAddress, mintAddress){
                 'tokenId': '',
                 'symbol': '',
                 'tokenType': '',
-                'thumbnail': '',
+                'image': '',
                 'format': '',
                 'price': 0.0,
                 'balance': '1',
-                'totalSupply': '0',
                 'walletAddress': walletAddress,
-                'market': '',
+                'externalUrl': '',
                 'error' : metadataResponse.status + ' ' + metadataResponse.statusText
               };
         }
@@ -431,4 +429,4 @@ exports.transferNFT = async (req, res) => {
 }
 
 // createWallet('cook camp cake fame rescue humble knife neglect august size jump machine');
-// getNFTs('FyCPTTfu793pBCUzotV5NrLydNA1zRiBDrbDpxCh3ZqS');
+// getNFTsByOwner('FyCPTTfu793pBCUzotV5NrLydNA1zRiBDrbDpxCh3ZqS');
