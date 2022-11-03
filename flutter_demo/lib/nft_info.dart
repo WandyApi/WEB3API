@@ -11,7 +11,7 @@ class NFTInfo {
   String externalUrl = "";
 
   NFTInfo(
-      this.tokenType,
+      this.tokenType,  //ERC-721,ERC-1155
       this.title,
       this.description,
       this.tokenId,

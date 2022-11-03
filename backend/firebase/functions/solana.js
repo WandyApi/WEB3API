@@ -303,14 +303,6 @@ async function getNFTMetadata(walletAddress, mintAddress){
                 }
             }
 
-            var price = 3.41;
-            if(name.includes('Burrito')) {
-                price = 6.18;
-            }
-            if(name.includes('Loop')) {
-                price = 8.16;
-            }
-
             result = {
                 'contractAddress': mintAddress,
                 'title': name,
@@ -320,7 +312,7 @@ async function getNFTMetadata(walletAddress, mintAddress){
                 'tokenType': standard,
                 'image': image,
                 'format': '',
-                'price': price,
+                'price': 0.0,
                 'balance': '1',
                 'walletAddress': walletAddress,
                 'externalUrl': external_url,
@@ -427,6 +419,3 @@ exports.transferNFT = async (req, res) => {
           return jsonResult;
     }
 }
-
-// createWallet('cook camp cake fame rescue humble knife neglect august size jump machine');
-// getNFTsByOwner('FyCPTTfu793pBCUzotV5NrLydNA1zRiBDrbDpxCh3ZqS');

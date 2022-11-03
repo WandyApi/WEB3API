@@ -104,7 +104,7 @@ exports.getNFTsByOwner = functions.https.onCall(async (req, res) => {
     'tokenType': '',
     'image': '',
     'format': '',
-    'price': 0,
+    'price': 0.0,
     'balance': '0',
     'walletAddress': req.walletAddress,
     'externalUrl': '',

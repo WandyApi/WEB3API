@@ -4,16 +4,17 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_demo/token_info.dart';
-
 import 'nft_info.dart';
 
-Future<String> createWallet(int network, String mnemonic) async {
+//Generate a new wallet address by a new seedsPhrase
+//Retrieve a existing wallet address by a existing seedsPhrase  - does not affect the assets
+Future<String> createWallet(int network, String seedsPhrase) async {
   String walletAddress = '';
   HttpsCallable request = FirebaseFunctions.instance.httpsCallable(
       'createWallet');
     final response = await request.call(<String, dynamic>{
       'network': network,
-      'mnemonic': mnemonic,
+      'mnemonic': seedsPhrase,
   });
 
   final responseJson = json.decode(response.data);
@@ -26,13 +27,14 @@ Future<String> createWallet(int network, String mnemonic) async {
   return walletAddress;
 }
 
-Future<double> getBalance(int network, String mnemonic, String tokenAddress) async {
+Future<double> getBalance(int network, String walletAddress, String seedsPhrase, String tokenAddress) async {
   double balance = 0.0;
   HttpsCallable request = FirebaseFunctions.instance.httpsCallable(
       'getBalance');
   final response = await request.call(<String, dynamic>{
     'network': network,
-    'mnemonic': mnemonic,
+    'mnemonic': seedsPhrase,
+    'walletAddress': walletAddress,
     'tokenAddress':tokenAddress
   });
 
@@ -46,12 +48,12 @@ Future<double> getBalance(int network, String mnemonic, String tokenAddress) asy
   return balance;
 }
 
-Future<String> transfer(int network, String mnemonic, String toAddress, TokenInfo tokenInfo, double amount) async {
+Future<String> transfer(int network, String seedsPhrase, String toAddress, TokenInfo tokenInfo, double amount) async {
 
     HttpsCallable request = FirebaseFunctions.instance.httpsCallable('transfer');
     final response = await request.call(<String, dynamic>{
       'network': network,
-      'mnemonic': mnemonic,
+      'mnemonic': seedsPhrase,
       'toAddress': toAddress,
       'tokenAddress': tokenInfo.tokenAddress,
       'amount': (amount * pow(10, tokenInfo.decimals)).toInt()
@@ -60,10 +62,9 @@ Future<String> transfer(int network, String mnemonic, String toAddress, TokenInf
     print('transfer responseJson = $responseJson');
     String error = responseJson['error'].toString();
     return error;
-
   }
 
-Future<List> getNFTsByOwner(int network, String walletAddress) async {
+Future<List<NFTInfo>> getNFTsByOwner(int network, String walletAddress) async {
 
   HttpsCallable request = FirebaseFunctions.instance.httpsCallable(
       'getNFTsByOwner');
@@ -74,7 +75,7 @@ Future<List> getNFTsByOwner(int network, String walletAddress) async {
 
   final List<dynamic> responseJson = json.decode(response.data);
   print('getNFTsByOwner responseJson = ${responseJson}');
-  List nfts = [];
+  List<NFTInfo> nfts = [];
   for (var i = 0; i < responseJson.length; i++) {
     final nftItem = responseJson[i];
 
@@ -91,11 +92,10 @@ Future<List> getNFTsByOwner(int network, String walletAddress) async {
           nftItem['externalUrl'].toString());
           nfts.add(nftInfo);
   }
-
   return nfts;
 }
 
-Future<String> transferNFT(int network, String mnemonic, String toAddress, NFTInfo nftInfo, double amount) async {
+Future<String> transferNFT(int network, String seedsPhrase, String toAddress, NFTInfo nftInfo, double amount) async {
 
   print('transferNFT  = $toAddress ${nftInfo.contractAddress} ${nftInfo.tokenId}');
 
@@ -103,7 +103,7 @@ Future<String> transferNFT(int network, String mnemonic, String toAddress, NFTIn
 
   final response = await request.call(<String, dynamic>{
     'network': network,
-    'mnemonic': mnemonic,
+    'mnemonic': seedsPhrase,
     'toAddress': toAddress,
     'tokenAddress': nftInfo.contractAddress,
     'tokenId': nftInfo.tokenId,

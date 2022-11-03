@@ -1,11 +1,11 @@
 import 'package:flutter_demo/token_info.dart';
 
-TokenInfo GST = new TokenInfo(
-    'STEPN Green Satoshi Token',
-    'GST',
+TokenInfo SAMO = new TokenInfo(
+    'Samoyedcoin',
+    'SAMO',
     9,
-    'https://s2.coinmarketcap.com/static/img/coins/64x64/16352.png',
-    'AFbX8oGjGpmVFywbVouvhQSRmiW2aR1mohfahi4Y2AdB',
+    'https://s2.coinmarketcap.com/static/img/coins/64x64/9721.png',
+    '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU',
     0);
 
 TokenInfo USDC1 = new TokenInfo(
@@ -80,11 +80,14 @@ TokenInfo ETHW = new TokenInfo(
     'ETHW',
     0);
 
+
 List networks = ['Solana', 'Binance', 'Ethereum', 'EthereumPoW'];
 
-List solanaTokens = [GST, USDC1, SOL];
-List BinanceTokens = [DOGE, GMT, BNB];
-List ethereumTokens = [SHIB, USDC2, ETH];
-List ethereumPoWTokens = [ETHW];
+//These are some tokens samples for each network
+
+List<TokenInfo> solanaTokens = [SAMO, USDC1, SOL];
+List<TokenInfo> BinanceTokens = [DOGE, GMT, BNB];
+List<TokenInfo> ethereumTokens = [SHIB, USDC2, ETH];
+List<TokenInfo> ethereumPoWTokens = [ETHW];
 
 List tokens = [solanaTokens, BinanceTokens, ethereumTokens, ethereumPoWTokens];
