@@ -8,7 +8,7 @@
 
 Dear Web3 Developers, 
 
-For API supports, please please join **Black Cat Web3 Developer Club**:
+For API supports, please please join :black_cat:**Black Cat Web3 Developer Club**:black_cat:
 
 Twitter Community: https://twitter.com/i/communities/1584793467749687296
 
