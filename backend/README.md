@@ -5,6 +5,8 @@
 - aws
 
 You can choose one of them to be your backend.
+
 Firebase provides a quick and convient way to setup a backend server. All you need is a gmail account.
+
 AWS provides a powerful and professional platform which is good for bigger teams.
 
