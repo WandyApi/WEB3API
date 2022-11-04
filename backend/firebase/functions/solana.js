@@ -115,8 +115,6 @@ exports.transfer = async (req, res) => {
                 'fromAddress': payerKeypair.publicKey,
                 'toAddress': toAddress,
                 'amount': amount,
-                'gasPrice': 0,
-                'gasUsed': 0,
                 'gasFee': 5000  //SOL
               };
 
@@ -131,8 +129,6 @@ exports.transfer = async (req, res) => {
                 'fromAddress': payerKeypair.publicKey,
                 'toAddress': toAddress,
                 'amount': amount,
-                'gasPrice': 0,
-                'gasUsed': 0,
                 'gasFee': 0
               };
 
@@ -176,8 +172,6 @@ exports.transfer = async (req, res) => {
             'fromAddress': payerKeypair.publicKey,
             'toAddress': toAddress,
             'amount': amount,
-            'gasPrice': 0,
-            'gasUsed': 0,
             'gasFee': 5000  //SOL
           };
 
@@ -193,8 +187,6 @@ exports.transfer = async (req, res) => {
             'fromAddress': payerKeypair.publicKey,
             'toAddress': toAddress,
             'amount': amount,
-            'gasPrice': 0,
-            'gasUsed': 0,
             'gasFee': 0
           };
 
@@ -203,6 +195,7 @@ exports.transfer = async (req, res) => {
     }
 }
 
+//Solana has been fixed and low, normally 0.000005 SOL per signature and most of time less than 0.000008SOL.
 exports.getEstimateGasFee = async (req, res) => {
 
     let amount = Number(req.amount);
@@ -213,13 +206,10 @@ exports.getEstimateGasFee = async (req, res) => {
 
     let result = {
         'error': '',
+        'tokenAddress': tokenAddress,
         'tokenAmount': amount,
-        'estimateGasPrice': 0,
-        'estimateGasPriceGwei': 0,
-        'estimateGas': 0,
-        'estimateGasLimit': 0,
-        'estimateGasFee': 5000,
-        'estimateGasFeeLimit': 5000
+        'estimateGasFee': 5000,  //SOL 
+        'estimateGasFeeLimit': 8000 //Estimated SOL
       };
 
       var jsonResult = JSON.stringify(result, null, 2);
@@ -390,8 +380,6 @@ exports.transferNFT = async (req, res) => {
             'toAddress': toAddress,
             'tokenId': tokenId,
             'amount': amount,
-            'gasPrice': 0,
-            'gasUsed': 0,
             'gasFee': 5000  //SOL
           };
 
@@ -409,8 +397,6 @@ exports.transferNFT = async (req, res) => {
             'toAddress': toAddress,
             'tokenId': tokenId,
             'amount': amount,
-            'gasPrice': 0,
-            'gasUsed': 0,
             'gasFee': 0
           };
 

@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '$network - ${networks[network]}',
+              '$network - ${Constants().networks[network]}',
               style: Theme.of(context).textTheme.headline4,
             ),
 

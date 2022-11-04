@@ -66,8 +66,6 @@ exports.transfer = functions.https.onCall(async (req, res) => {
       'fromAddress': '',
       'toAddress': '',
       'amount': 0,
-      'gasPrice': 0,
-      'gasUsed': 0,
       'gasFee': 0  
     };
 
@@ -141,8 +139,6 @@ exports.transferNFT = functions.https.onCall(async (req, res) => {
       'fromAddress': '',
       'toAddress': '',
       'amount': 0,
-      'gasPrice': 0,
-      'gasUsed': 0,
       'gasFee': 0  
     };
     
