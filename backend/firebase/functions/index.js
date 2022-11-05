@@ -1,9 +1,16 @@
 const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 const solana = require('./solana')
+const eth = require('./ethereum')
+const ethw = require('./ethereumpow')
+const binance = require('./binance')
 admin.initializeApp(functions.config().firebase);
 
-//WandyAPI
+
+//WandyAPI starts from here
+//For supports, please join Black Cat Web3 Developer Club
+//Please visit https://www.WandyAPI.xyz for more details
+
 exports.createWallet = functions.https.onCall(async (req, res) => {
   
   let result = {
@@ -16,17 +23,17 @@ exports.createWallet = functions.https.onCall(async (req, res) => {
        jsonResult = await solana.createWallet(req, res);
     }
     
-    // if(req.network == 1) {
-    //     jsonResult = await binance.createWallet(req, res);
-    // }
+    if(req.network == 1) {
+        jsonResult = await binance.createWallet(req, res);
+    }
 
-    // if(req.network == 2) {
-    //     jsonResult = await eth.createWallet(req, res);
-    // }
+    if(req.network == 2) {
+        jsonResult = await eth.createWallet(req, res);
+    }
 
-    // if(req.network == 3) {
-    //     jsonResult = await ethw.createWallet(req, res);
-    // }
+    if(req.network == 3) {
+        jsonResult = await ethw.createWallet(req, res);
+    }
 
     return jsonResult;
 })
@@ -43,15 +50,18 @@ exports.getBalance = functions.https.onCall(async (req, res) => {
   if(req.network == 0) {
     jsonResult = await solana.getBalance(req, res);
   }
-  // if(req.network == 1) {
-  //     jsonResult = await binance.getBalance(req, res);
-  // }
-  // if(req.network == 2) {
-  //     jsonResult = await eth.getBalance(req, res);
-  // }
-  // if(req.network == 3) {
-  //     jsonResult = await ethw.getBalance(req, res);
-  // }
+
+  if(req.network == 1) {
+      jsonResult = await binance.getBalance(req, res);
+  }
+
+  if(req.network == 2) {
+      jsonResult = await eth.getBalance(req, res);
+  }
+
+  if(req.network == 3) {
+      jsonResult = await ethw.getBalance(req, res);
+  }
 
    return jsonResult;
 })
@@ -66,6 +76,8 @@ exports.transfer = functions.https.onCall(async (req, res) => {
       'fromAddress': '',
       'toAddress': '',
       'amount': 0,
+      'gasPrice': 0,
+      'gasUsed': 0,
       'gasFee': 0  
     };
 
@@ -75,17 +87,17 @@ exports.transfer = functions.https.onCall(async (req, res) => {
       jsonResult = await solana.transfer(req, res)
   }
 
-  // if(req.network == 1) {
-  //     jsonResult = await binance.transfer(req, res)
-  // }
+  if(req.network == 1) {
+      jsonResult = await binance.transfer(req, res)
+  }
 
-  // if(req.network == 2) {
-  //     jsonResult = await eth.transfer(req, res)
-  // }
+  if(req.network == 2) {
+      jsonResult = await eth.transfer(req, res)
+  }
 
-  // if(req.network == 3) {
-  //   jsonResult = await ethw.transfer(req, res)
-  // }
+  if(req.network == 3) {
+    jsonResult = await ethw.transfer(req, res)
+  }
 
   return jsonResult;
 })
@@ -115,19 +127,20 @@ exports.getNFTsByOwner = functions.https.onCall(async (req, res) => {
     jsonResult = await solana.getNFTsByOwner(req, res)
   }
 
-  // if(req.network == 1) {
-  //    jsonResult = await binance.getNFTsByOwner(req, res)
-  // }
+  if(req.network == 1) {
+     jsonResult = await binance.getNFTsByOwner(req, res)
+  }
 
-  // if(req.network == 2) {
-  //    jsonResult = await eth.getNFTsByOwner(req, res)
-  // }
+  if(req.network == 2) {
+     jsonResult = await eth.getNFTsByOwner(req, res)
+  }
 
-  // if(req.network == 3) {
-  //   jsonResult = await ethw.getNFTsByOwner(req, res)
-  // }
+  if(req.network == 3) {
+    jsonResult = await ethw.getNFTsByOwner(req, res)
+  }
 
   return jsonResult;
+
 })
 
 exports.transferNFT = functions.https.onCall(async (req, res) => {
@@ -139,6 +152,8 @@ exports.transferNFT = functions.https.onCall(async (req, res) => {
       'fromAddress': '',
       'toAddress': '',
       'amount': 0,
+      'gasPrice': 0,
+      'gasUsed': 0,
       'gasFee': 0  
     };
     
@@ -148,17 +163,17 @@ exports.transferNFT = functions.https.onCall(async (req, res) => {
       jsonResult = await solana.transferNFT(req, res)
   }
 
-  // if(req.network == 1) {
-  //     jsonResult = await binance.transferNFT(req, res)
-  // }
+  if(req.network == 1) {
+      jsonResult = await binance.transferNFT(req, res)
+  }
 
-  // if(req.network == 2) {
-  //     jsonResult = await eth.transferNFT(req, res)
-  // }
+  if(req.network == 2) {
+      jsonResult = await eth.transferNFT(req, res)
+  }
 
-  // if(req.network == 3) {
-  //   jsonResult = await ethw.transferNFT(req, res)
-  // }
+  if(req.network == 3) {
+    jsonResult = await ethw.transferNFT(req, res)
+  }
 
   return jsonResult;
 })

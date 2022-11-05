@@ -115,6 +115,8 @@ exports.transfer = async (req, res) => {
                 'fromAddress': payerKeypair.publicKey,
                 'toAddress': toAddress,
                 'amount': amount,
+                'gasPrice': 0,
+                'gasUsed': 0,
                 'gasFee': 5000  //SOL
               };
 
@@ -129,6 +131,8 @@ exports.transfer = async (req, res) => {
                 'fromAddress': payerKeypair.publicKey,
                 'toAddress': toAddress,
                 'amount': amount,
+                'gasPrice': 0,
+                'gasUsed': 0,
                 'gasFee': 0
               };
 
@@ -172,6 +176,8 @@ exports.transfer = async (req, res) => {
             'fromAddress': payerKeypair.publicKey,
             'toAddress': toAddress,
             'amount': amount,
+            'gasPrice': 0,
+            'gasUsed': 0,
             'gasFee': 5000  //SOL
           };
 
@@ -187,6 +193,8 @@ exports.transfer = async (req, res) => {
             'fromAddress': payerKeypair.publicKey,
             'toAddress': toAddress,
             'amount': amount,
+            'gasPrice': 0,
+            'gasUsed': 0,
             'gasFee': 0
           };
 
@@ -278,6 +286,7 @@ async function getNFTMetadata(walletAddress, mintAddress){
         var symbol = tokenMetadata1.symbol;
         const metadataUri = tokenMetadata1.metaplex.metadataUri;
         const metadataResponse = await fetch(metadataUri); 
+        var totalSupply = '0';
 
         if(metadataResponse.status == 200) {
             const tokenMetadata2 = await metadataResponse.json();
@@ -286,6 +295,9 @@ async function getNFTMetadata(walletAddress, mintAddress){
             var description = tokenMetadata2.description;
             var image = tokenMetadata2.image;
             var external_url = tokenMetadata2.external_url;
+
+            //Opensea, Magic Eden etc. are the famouse NFT marketplaces.
+            //The NFTs maybe listed on one or more martkets.
 
             if(typeof external_url != 'undefined') {
                 if(!external_url.includes('opensea.io')) {
@@ -304,6 +316,7 @@ async function getNFTMetadata(walletAddress, mintAddress){
                 'format': '',
                 'price': 0.0,
                 'balance': '1',
+                'totalSupply': totalSupply,
                 'walletAddress': walletAddress,
                 'externalUrl': external_url,
                 'error' : ''
@@ -320,6 +333,7 @@ async function getNFTMetadata(walletAddress, mintAddress){
                 'format': '',
                 'price': 0.0,
                 'balance': '1',
+                'totalSupply': totalSupply,
                 'walletAddress': walletAddress,
                 'externalUrl': '',
                 'error' : metadataResponse.status + ' ' + metadataResponse.statusText
@@ -380,6 +394,8 @@ exports.transferNFT = async (req, res) => {
             'toAddress': toAddress,
             'tokenId': tokenId,
             'amount': amount,
+            'gasPrice': 0,
+            'gasUsed': 0,
             'gasFee': 5000  //SOL
           };
 
@@ -397,6 +413,8 @@ exports.transferNFT = async (req, res) => {
             'toAddress': toAddress,
             'tokenId': tokenId,
             'amount': amount,
+            'gasPrice': 0,
+            'gasUsed': 0,
             'gasFee': 0
           };
 
