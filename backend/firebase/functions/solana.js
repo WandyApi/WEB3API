@@ -29,58 +29,59 @@ exports.createWallet = (req, res) => {
 }
 
 exports.getBalance = async (req, res) => {
-    const mnemonic = req.mnemonic;
+  // async function getBalance (walletAddress, tokenAddress) {
+    const walletAddress = req.walletAddress;
     const tokenAddress = req.tokenAddress;
-    const seedPhrase = bip39.mnemonicToSeedSync(mnemonic, "")         
-    const index = 0; 
-    const derivedPath = "m/44'/501'/" + index + "'/0'";
-    const derivedSeed = ed25519.derivePath(derivedPath, seedPhrase.toString('hex')).key;
-    const payerKeypair = solanaWeb3.Keypair.fromSeed(derivedSeed);
-
-    if(tokenAddress.toLocaleUpperCase() == 'SOL') {
-        const balance = await connection.getBalance(payerKeypair.publicKey);
-
-        let result = {
+  
+    //get SPL Token Balance
+    const tokenAccounts = await connection.getTokenAccountsByOwner(
+        new solanaWeb3.PublicKey(walletAddress),
+        {
+            programId: splToken.TOKEN_PROGRAM_ID,
+        }
+    )
+  
+    var result = {
+      'error': '',
+      'tokenAddress': tokenAddress,
+      'balance': 0
+    };
+  
+    tokenAccounts.value.forEach((e) => {
+        const accountInfo = splToken.AccountLayout.decode(e.account.data);
+        let tokenAddress2 = new solanaWeb3.PublicKey(accountInfo.mint);
+        let tokenAmount = accountInfo.amount;
+  
+        // console.log(tokenAddress2 + ' ' + tokenAmount);
+  
+        if(tokenAddress == tokenAddress2) {
+          result = {
             'error': '',
             'tokenAddress': tokenAddress,
-            'balance': Number(balance)
+            'balance': Number(tokenAmount)
           };
-
-          var jsonResult = JSON.stringify(result, null, 2);
-          return jsonResult;
-
-    } else {
-        try {
-            const tokenAddress2 = new solanaWeb3.PublicKey(tokenAddress)
-            const payerAccount = await splToken.getOrCreateAssociatedTokenAccount( 
-                connection,
-                payerKeypair,
-                tokenAddress2,
-                payerKeypair.publicKey
-            );
-            const balance = payerAccount.amount;
-
-            let result = {
-                'error': '',
-                'tokenAddress': tokenAddress,
-                'balance': Number(balance)
-              };
-
-              var jsonResult = JSON.stringify(result, null, 2);
-              return jsonResult;
-
-        } catch (error){
-              let result = {
-                'error': error.message,
-                'tokenAddress': tokenAddress,
-                'balance': 0
-              };
-
-              var jsonResult = JSON.stringify(result, null, 2);
-              return jsonResult;
         }
-   }
-}
+    })
+    
+  
+    //get SOL Balance
+    if(tokenAddress == 'SOL') {
+    try {
+      const solBalance = await connection.getBalance( new solanaWeb3.PublicKey(walletAddress)); 
+      result = {
+        'error': '',
+        'tokenAddress': 'SOL',
+        'balance': Number(solBalance)
+      };
+      } catch (error) {
+      }
+    }
+  
+    var jsonResult = JSON.stringify(result, null, 2);
+    console.log(jsonResult);
+  
+    return jsonResult
+  }
 
 exports.transfer = async (req, res) => {
     var mnemonic = req.mnemonic;
@@ -427,3 +428,60 @@ exports.transferNFT = async (req, res) => {
           return jsonResult;
     }
 }
+
+//get all the tokens balance of an address, inlcude coins & nfts
+async function getTokensBalance (walletAddress) {
+
+  //get SPL Tokens Balance
+  const tokenAccounts = await connection.getTokenAccountsByOwner(
+      new solanaWeb3.PublicKey(walletAddress),
+      {
+          programId: splToken.TOKEN_PROGRAM_ID,
+      }
+  )
+
+  var results = [];
+
+  tokenAccounts.value.forEach((e) => {
+      const accountInfo = splToken.AccountLayout.decode(e.account.data);
+      let tokenAddress = new solanaWeb3.PublicKey(accountInfo.mint);
+      let tokenAmount = accountInfo.amount;
+
+      // console.log(tokenAddress + ' ' + tokenAmount);
+
+      let result = {
+        'error': '',
+        'tokenAddress': tokenAddress,
+        'balance': Number(tokenAmount)
+      };
+
+      results.push(result);
+
+  })
+  
+  //get SOL Balance
+  try {
+    const solBalance = await connection.getBalance( new solanaWeb3.PublicKey(walletAddress)); 
+    let solResult = {
+      'error': '',
+      'tokenAddress': 'SOL',
+      'balance': Number(solBalance)
+    };
+    results.push(solResult);
+  }  catch (error) {
+    let solResult = {
+      'error': '',
+      'tokenAddress': 'SOL',
+      'balance': 0
+    };
+    results.push(solResult);
+  }
+
+  var jsonResult = JSON.stringify(results, null, 2);
+  console.log(jsonResult);
+
+  return jsonResult
+}
+
+
+

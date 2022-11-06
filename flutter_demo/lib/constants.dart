@@ -101,10 +101,7 @@ class Constants {
   ];
 
   static const String solanaDemoWalletAddress = 'DU64YUi8nYNt3mdhmUti2BhLZdcZmgDe59HayvVBWKnb';
-  static const String solanaDemoSeedsPhrase = 'alert stock book cloth captain grant bubble response biology energy honey grocery';
-
   static const String ethDemoWalletAddress = '0x057Fc44D60F1D31F3401d9B2739C7F37365A2689';  //eth, binance and ethw use the same address
-
   static final List demoWalletAddresses = [
     solanaDemoWalletAddress,  //https://solscan.io/account/DU64YUi8nYNt3mdhmUti2BhLZdcZmgDe59HayvVBWKnb
     ethDemoWalletAddress,     //https://bscscan.com/address/0x057Fc44D60F1D31F3401d9B2739C7F37365A2689

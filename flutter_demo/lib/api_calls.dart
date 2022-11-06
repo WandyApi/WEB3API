@@ -33,13 +33,12 @@ class ApiCalls {
   }
 
   Future<double> getBalance(int network, String walletAddress,
-      String seedsPhrase, String tokenAddress) async {
+       String tokenAddress) async {
     double balance = 0.0;
     HttpsCallable request = FirebaseFunctions.instance.httpsCallable(
         'getBalance');
     final response = await request.call(<String, dynamic>{
       'network': network,
-      'mnemonic': seedsPhrase,
       'walletAddress': walletAddress,
       'tokenAddress': tokenAddress
     });

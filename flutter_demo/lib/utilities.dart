@@ -18,15 +18,9 @@ class Utilities {
   Future<void> queryTokensBalance(int network, String walletAddress) async {
     List<TokenInfo> tokenList = Constants.tokens[network];
 
-
-    String seedsPhrase = '';
-    if(network == 0) {
-      seedsPhrase = Constants.solanaDemoSeedsPhrase; //for Solana
-    }
-
     tokenList.forEach((tokenInfo) async {
       double balance = await ApiCalls().getBalance(
-          network, walletAddress, seedsPhrase, tokenInfo.tokenAddress);
+          network, walletAddress, tokenInfo.tokenAddress);
       balance = balance / pow(10, tokenInfo.decimals);
       if (kDebugMode) {
         print('${Constants.networks[network]} ${tokenInfo.symbol} : $balance');
