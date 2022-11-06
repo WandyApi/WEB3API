@@ -1,3 +1,7 @@
+
+// Flutter Demo of https://www.WandyApi.xyz
+// For Web3 Api & Demo supports and more, please join Black Cat Web3 Developer Club
+
 import 'dart:convert';
 import 'dart:math';
 import 'package:bip39/bip39.dart' as bip39;
@@ -7,7 +11,6 @@ import 'package:flutter_demo/nft_info.dart';
 import 'package:flutter_demo/token_info.dart';
 import 'constants.dart';
 import 'package:http/http.dart' as http;
-
 
 class Utilities {
 

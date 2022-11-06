@@ -1,3 +1,7 @@
+
+// Flutter Demo of https://www.WandyApi.xyz
+// For Web3 Api & Demo supports and more, please join Black Cat Web3 Developer Club
+
 class NFTInfo {
   String title = "";
   String description = "";

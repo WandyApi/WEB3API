@@ -1,4 +1,6 @@
-import 'dart:math';
+
+// Flutter Demo of https://www.WandyApi.xyz
+// For Web3 Api & Demo supports and more, please join Black Cat Web3 Developer Club
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_demo/api_calls.dart';
 import 'package:flutter_demo/utilities.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'constants.dart';
 import 'firebase_options.dart';
 
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.50'),
+      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.90'),
     );
   }
 }
@@ -59,12 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
+            Image.asset(
+              "assets/icon_wandyapi.png",
+              height: 72,
+            ),
+            const SizedBox(height: 50),
+
             Text(
               '$network - ${Constants.networks[network]}',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline6,
             ),
 
-        const SizedBox(height: 35),
+        const SizedBox(height: 10),
 
         SizedBox(
           height: 40,
@@ -201,6 +211,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                   },
                   child: const Text('Transfer NFT'),
+                )
+            ),
+
+            const SizedBox(height: 35),
+            SizedBox(
+                height: 40,
+                width: 200,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () {
+                    final Uri _url = Uri.parse('https://www.WandyApi.xyz');
+                    launchUrl(_url);
+                  },
+                  child: const Text('About'),
                 )
             ),
 
