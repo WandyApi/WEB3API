@@ -14,4 +14,4 @@
 5. flutter build ios 
 6. open ios/Runner.xcworkspace 
 7. run in Xcode (https://docs.flutter.dev/deployment/ios)
-8. (/screenshots/Screenshot_1.png) (/screenshots/Screenshot_2.png)
+8. ![Screenshot](/screenshots/Screenshot_1.png) ![Screenshot](/screenshots/Screenshot_2.png)
