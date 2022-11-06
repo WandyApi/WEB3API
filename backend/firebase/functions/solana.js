@@ -120,7 +120,7 @@ exports.transfer = async (req, res) => {
                 'amount': amount,
                 'gasPrice': 0,
                 'gasUsed': 0,
-                'gasFee': 5000  //SOL
+                'gasFee': 5000  //Estimate Gas Fee, Unit: SOL
               };
 
               var jsonResult = JSON.stringify(result, null, 2);
@@ -206,7 +206,7 @@ exports.transfer = async (req, res) => {
     }
 }
 
-//Solana has been fixed and low, normally 0.000005 SOL per signature and most of time less than 0.000008SOL.
+//Solana gas has been fixed and low for a long time, normally 0.000005 SOL per signature and most of time less than 0.000008SOL.
 exports.getEstimateGasFee = async (req, res) => {
 
     let amount = Number(req.amount);
@@ -219,8 +219,9 @@ exports.getEstimateGasFee = async (req, res) => {
         'error': '',
         'tokenAddress': tokenAddress,
         'tokenAmount': amount,
-        'estimateGasFee': 5000,  //SOL 
-        'estimateGasFeeLimit': 8000 //Estimated SOL
+        'estimateGasFee': 5000,  //Estimated gas fee, unit: SOL 
+        'estimateGasFeeLimit': 8000, //Estimated gas limit, unit: SOL 
+        'fundingRecipient' : 2039280 //If recipient's associated token account does not exist, the sender needs to fund the recipient when you send SPL token.  unit: SOL
       };
 
       var jsonResult = JSON.stringify(result, null, 2);

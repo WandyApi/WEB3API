@@ -178,3 +178,40 @@ exports.transferNFT = functions.https.onCall(async (req, res) => {
 
   return jsonResult;
 })
+
+exports.getEstimateGasFee = functions.https.onCall(async (req, res) => {
+  
+  let tokenAddress = req.tokenAddress;
+
+  if(req.network == 0) {
+      const result = await solana.getEstimateGasFee(req, res)
+      return result;
+  }
+  
+  if(req.network == 1) {
+      const result = await binance.getEstimateGasFee(req, res)
+      return result;
+  }
+  
+  if(req.network == 2) {
+      const result = await eth.getEstimateGasFee(req, res)
+      return result;
+  }
+
+  if(req.network == 3) {
+    const result = await ethw.getEstimateGasFee(req, res)
+    return result;
+}
+
+  let result = {
+      'error': 'Network not found',
+      'tokenAmount': '0x0',
+      'tokenAddress': tokenAddress,
+      'estimateGasFee': '0x0', 
+      'estimateGasFeeLimit': '0x0' 
+    };
+
+    var jsonResult = JSON.stringify(result, null, 2);
+  
+    return jsonResult;
+})

@@ -355,8 +355,8 @@ exports.getEstimateGasFee = async (req, res) => {
         'error': error.message,
         'tokenAmount': amount,
         'tokenAddress': tokenAddress,
-        'estimateGasFee': 6 * 21000,
-        'estimateGasFeeLimit': 6 * 21000 * 2
+        'estimateGasFee': 6 * 21000,   //Estimated gas fee, unit: GWei https://academy.binance.com/en/glossary/gas-limit
+        'estimateGasFeeLimit': 6 * 21000 * 2 //Double the gas fee
     };
   
       var jsonResult = JSON.stringify(result, null, 2);
