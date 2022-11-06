@@ -94,10 +94,10 @@ class ApiCalls {
     if (kDebugMode) {
       print('getNFTsByOwner responseJson = $responseJson');
     }
+
     List<NFTInfo> nfts = [];
     for (var i = 0; i < responseJson.length; i++) {
       final nftItem = responseJson[i];
-      print('getNFTsByOwner nftItem = $nftItem');
 
       NFTInfo nftInfo = NFTInfo(
           nftItem['tokenType'].toString(),

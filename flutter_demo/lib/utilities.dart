@@ -29,7 +29,7 @@ class Utilities {
           network, walletAddress, seedsPhrase, tokenInfo.tokenAddress);
       balance = balance / pow(10, tokenInfo.decimals);
       if (kDebugMode) {
-        print('${tokenInfo.name} $balance');
+        print('${Constants.networks[network]} ${tokenInfo.symbol} : $balance');
       }
     });
   }
@@ -50,7 +50,7 @@ class Utilities {
         network, walletAddress);
     for (var nftInfo in nfts) {
       if (kDebugMode) {
-        print('${nftInfo.contractAddress} ${nftInfo.tokenId} ${nftInfo.title} ${nftInfo.image}');
+        print('${nftInfo.contractAddress}, ${nftInfo.title}, ${nftInfo.tokenId}, ${nftInfo.image}, ${nftInfo.externalUrl}');
       }
     }
     return nfts;

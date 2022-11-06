@@ -74,6 +74,7 @@ exports.getBalance = async (req, res) => {
 
         let result = {
           'error': '',
+          'tokenAddress': tokenAddress,
           'balance': balance
         };
 
@@ -87,6 +88,7 @@ exports.getBalance = async (req, res) => {
         
         let result = {
           'error': '',
+          'tokenAddress': tokenAddress,
           'balance': balance
         };
 
@@ -97,6 +99,7 @@ exports.getBalance = async (req, res) => {
 
           let result = {
             'error': error.message,
+            'tokenAddress': tokenAddress,
             'balance': 0
           };
   
@@ -456,7 +459,7 @@ exports.getEstimateGasFee = async (req, res) => {
 
 
 exports.getNFTsByOwner = async (req, res) => {
-async function getNFTsByOwner(walletAddress) {
+// async function getNFTsByOwner(walletAddress) {
   let walletAddress = req.walletAddress;
 
   //The key has API limit and it is for testing purpose.

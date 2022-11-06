@@ -45,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
   String walletAddress = '';
   int network = 0;
   String networkName = Constants.networks[0];
-
+  static const snackBar = SnackBar(
+    content: Text('Calling WandyApi ...'),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onPressed: () async {
                     // create a new wallet
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     seedsPhrase = Utilities().generateMnemonic();
                     if (kDebugMode) {
                       print(seedsPhrase);
@@ -101,6 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     if (kDebugMode) {
                       print('seedsPhrase = $seedsPhrase walletAddress = $walletAddress');
                     }
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   },
                   child: const Text('Create Wallet'),
                 )
@@ -144,7 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () async {
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         await Utilities().queryTokensBalance(network, Constants.demoWalletAddresses[network]);
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   },
                   child: const Text('Get Balance'),
                 )

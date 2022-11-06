@@ -42,6 +42,7 @@ exports.getBalance = async (req, res) => {
 
         let result = {
             'error': '',
+            'tokenAddress': tokenAddress,
             'balance': Number(balance)
           };
 
@@ -61,6 +62,7 @@ exports.getBalance = async (req, res) => {
 
             let result = {
                 'error': '',
+                'tokenAddress': tokenAddress,
                 'balance': Number(balance)
               };
 
@@ -70,6 +72,7 @@ exports.getBalance = async (req, res) => {
         } catch (error){
               let result = {
                 'error': error.message,
+                'tokenAddress': tokenAddress,
                 'balance': 0
               };
 

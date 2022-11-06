@@ -42,6 +42,7 @@ exports.getBalance = functions.https.onCall(async (req, res) => {
 
   let result = {
     'error': 'Network not found',
+    'tokenAddress': req.tokenAddress,
     'balance': 0
  };
 
