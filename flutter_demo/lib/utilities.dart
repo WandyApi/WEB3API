@@ -15,12 +15,18 @@ class Utilities {
     return bip39.generateMnemonic();
   }
 
-  Future<void> queryTokensBalance(int network, String walletAddress,
-      String seedsPhrase) async {
-    List<TokenInfo> tokenList = Constants().tokens[network];
+  Future<void> queryTokensBalance(int network, String walletAddress) async {
+    List<TokenInfo> tokenList = Constants.tokens[network];
+
+
+    String seedsPhrase = '';
+    if(network == 0) {
+      seedsPhrase = Constants.solanaDemoSeedsPhrase; //for Solana
+    }
+
     tokenList.forEach((tokenInfo) async {
       double balance = await ApiCalls().getBalance(
-          0, walletAddress, seedsPhrase, tokenInfo.tokenAddress);
+          network, walletAddress, seedsPhrase, tokenInfo.tokenAddress);
       balance = balance / pow(10, tokenInfo.decimals);
       if (kDebugMode) {
         print('${tokenInfo.name} $balance');
@@ -30,7 +36,7 @@ class Utilities {
 
   Future<String> transferToken(int network, String seedsPhrase, int id,
       String toAddress) async {
-    List tokenList = Constants().tokens[network];
+    List tokenList = Constants.tokens[network];
     final result = await ApiCalls().transfer(
         network, seedsPhrase, toAddress, tokenList[id], 100);
     if (kDebugMode) {
@@ -39,17 +45,15 @@ class Utilities {
     return result;
   }
 
-  Future<List<NFTInfo>> queryMyNFTs(int network) async {
-    String walletAddress = '';
-    List<NFTInfo> myNfts = await ApiCalls().getNFTsByOwner(
+  Future<List<NFTInfo>> queryNFTs(int network, String walletAddress) async {
+    List<NFTInfo> nfts = await ApiCalls().getNFTsByOwner(
         network, walletAddress);
-    for (var nftInfo in myNfts) {
+    for (var nftInfo in nfts) {
       if (kDebugMode) {
-        print('${nftInfo.title} ${nftInfo.contractAddress} ${nftInfo
-            .tokenId} ${nftInfo.image}');
+        print('${nftInfo.contractAddress} ${nftInfo.tokenId} ${nftInfo.title} ${nftInfo.image}');
       }
     }
-    return myNfts;
+    return nfts;
   }
 
   Future<String> transferNFT(int network, NFTInfo nftInfo, String seedsPhrase,

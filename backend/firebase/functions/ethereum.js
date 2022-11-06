@@ -455,7 +455,8 @@ exports.getEstimateGasFee = async (req, res) => {
   }
 
 
-exports.getNFTs = async (req, res) => {
+exports.getNFTsByOwner = async (req, res) => {
+async function getNFTsByOwner(walletAddress) {
   let walletAddress = req.walletAddress;
 
   //The key has API limit and it is for testing purpose.
@@ -512,6 +513,8 @@ exports.getNFTs = async (req, res) => {
         }
       }
 
+      //Opensea, Magic Eden, Rarible etc. are the famouse NFT marketplaces.
+      //The NFTs maybe listed on one or more martkets.
       const externalUrl = 'https://opensea.io/assets/ethereum/' + tokenMetadata2.contract.address + '/' + tokenId;
 
       let result = {
@@ -530,7 +533,7 @@ exports.getNFTs = async (req, res) => {
         'externalUrl': externalUrl,
         'error' : ''
       };
-      // console.log(result);
+      console.log(result);
       nftsMetadata.push(result);
     }
    }

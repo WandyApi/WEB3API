@@ -406,7 +406,7 @@ exports.getEstimateGasFee = async (req, res) => {
          'image': tokenMetadata.image,
          'format': '',
          'price': 0,
-         'balance': 1,
+         'balance': '1',
          'totalSupply': '0',
          'walletAddress': walletAddress,
          'externalUrl': externalUrl
@@ -442,8 +442,8 @@ exports.getEstimateGasFee = async (req, res) => {
         'tokenId': tokenId,
         'image': nftImageURI,
         'format': '',
-        'price': 0,
-        'balance': 1,
+        'price': 0.0,
+        'balance': '1',
         'totalSupply': '0',
         'walletAddress': walletAddress,
         'externalUrl': externalUrl
@@ -459,7 +459,7 @@ exports.getEstimateGasFee = async (req, res) => {
 
 
 //  async function getNFTs(walletAddress) {
-  exports.getNFTs = async (req, res) => {
+  exports.getNFTsByOwner = async (req, res) => {
 
   let walletAddress = req.walletAddress;
   
@@ -485,8 +485,9 @@ exports.getEstimateGasFee = async (req, res) => {
   for (let i = 0; i < nftProjectList.length; i++) {
      const tokenAddress = nftProjectList[i];
      const data = await getNFT(walletAddress, tokenAddress);
-     if(data.length > 0)
-      nftsMetadata.push(data);
+     for(var j = 0; j < data.length ; j++) {
+      nftsMetadata.push(data[j]);
+     }
   }
 
   var jsonResult = JSON.stringify(nftsMetadata, null, 2);

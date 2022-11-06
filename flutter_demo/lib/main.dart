@@ -1,11 +1,13 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_demo/api_calls.dart';
+import 'package:flutter_demo/utilities.dart';
 import 'constants.dart';
 import 'firebase_options.dart';
-import 'api_calls.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,11 +38,14 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
 
   String seedsPhrase = '';
   String walletAddress = '';
   int network = 0;
+  String networkName = Constants.networks[0];
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '$network - ${Constants().networks[network]}',
+              '$network - ${Constants.networks[network]}',
               style: Theme.of(context).textTheme.headline4,
             ),
 
-        SizedBox(height: 15),
+        const SizedBox(height: 35),
 
         SizedBox(
           height: 40,
@@ -65,22 +70,17 @@ class _MyHomePageState extends State<MyHomePage> {
           child: TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.green,
-                foregroundColor: Colors.black54,
+                foregroundColor: Colors.white,
                 textStyle: const TextStyle(fontSize: 18),
               ),
               onPressed: () {
-
-                setState(() {
-                  network = network + 1;
-                  if(network == 4)
-                    network = 0;
-                });
+                showNetworkSelectionDialog();
               },
               child: const Text('Switch Network'),
             ),
             ),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 25),
 
             SizedBox(
                 height: 40,
@@ -91,13 +91,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     foregroundColor: Colors.white,
                     textStyle: const TextStyle(fontSize: 18),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
+                    // create a new wallet
+                    seedsPhrase = Utilities().generateMnemonic();
+                    if (kDebugMode) {
+                      print(seedsPhrase);
+                    }
+                    walletAddress = await ApiCalls().createWallet(network, seedsPhrase);
+                    if (kDebugMode) {
+                      print('seedsPhrase = $seedsPhrase walletAddress = $walletAddress');
+                    }
                   },
                   child: const Text('Create Wallet'),
                 )
             ),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 10),
 
             SizedBox(
                 height: 40,
@@ -108,14 +117,41 @@ class _MyHomePageState extends State<MyHomePage> {
                     foregroundColor: Colors.white,
                     textStyle: const TextStyle(fontSize: 18),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
+                    // retrieve a wallet
+                    if(seedsPhrase.isNotEmpty) {
+                      walletAddress =
+                      await ApiCalls().createWallet(network, seedsPhrase);
+                      if (kDebugMode) {
+                        print(
+                            'seedsPhrase = $seedsPhrase walletAddress = $walletAddress');
+                      }
+                    }
+                  },
+                  child: const Text('Retrieve Wallet'),
+                )
+            ),
 
+            const SizedBox(height: 25),
+
+            SizedBox(
+                height: 40,
+                width: 200,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () async {
+                        await Utilities().queryTokensBalance(network, Constants.demoWalletAddresses[network]);
                   },
                   child: const Text('Get Balance'),
                 )
             ),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 10),
+
             SizedBox(
                 height: 40,
                 width: 200,
@@ -131,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
             ),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 25),
             SizedBox(
                 height: 40,
                 width: 200,
@@ -141,13 +177,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     foregroundColor: Colors.white,
                     textStyle: const TextStyle(fontSize: 18),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
+                    await Utilities().queryNFTs(network, Constants.demoWalletAddresses[network]);
                   },
                   child: const Text('Get NFTs'),
                 )
             ),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 10),
             SizedBox(
                 height: 40,
                 width: 200,
@@ -168,5 +205,63 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
     );
+  }
+
+  showNetworkSelectionDialog() async {
+    await showDialog(
+        context: context,
+        builder: (context) {
+          int selectedIndex = network;
+          return AlertDialog(
+            title: const Text("Please select a network"),
+            content: StatefulBuilder(builder: (context, StateSetter setState) {
+              return SingleChildScrollView(
+                child: ListBody(
+                  children: Constants.networks.asMap().keys.map((index) =>
+                      Padding(
+                          padding:EdgeInsets.all(5),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Radio(
+                                value: index,
+                                groupValue: selectedIndex,
+                                onChanged: (v) {
+
+                                    selectedIndex = v!;
+                                    setState(() {
+
+                                    });
+
+                                },
+                              ),
+                              Text(Constants.networks[index]),
+                            ],
+                          )
+                      )
+                  ).toList(),
+                ),
+              );
+            }),
+
+
+            actions: <Widget>[
+              TextButton(
+                  child: const Text("Cancel"),
+                  onPressed: () {
+                    Navigator.pop(context, "cancel");} ),
+              TextButton(
+                  child: const Text("OK"),
+                  onPressed: (){
+                    networkName = Constants.networks[selectedIndex];
+                    network = selectedIndex;
+                    setState(() {
+
+                    });
+                    Navigator.pop(context, "confirm");
+                  }),
+            ],
+          );
+        });
   }
 }

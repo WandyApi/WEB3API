@@ -362,7 +362,7 @@ exports.getEstimateGasFee = async (req, res) => {
   }
 
 
- exports.getNFTs = async (req, res) => {
+ exports.getNFTsByOwner = async (req, res) => {
   let walletAddress = req.walletAddress;
 
   var nftsMetadata = [];
@@ -429,7 +429,7 @@ exports.getEstimateGasFee = async (req, res) => {
         'tokenType': tokenMetadata2.contract_type,
         'image': thumbnail,
         'format': fileType,
-        'price': 0,
+        'price': 0.0,
         'balance': tokenMetadata2.amount,
         'totalSupply': totalSupply,
         'walletAddress': walletAddress,

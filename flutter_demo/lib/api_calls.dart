@@ -37,16 +37,9 @@ class ApiCalls {
     double balance = 0.0;
     HttpsCallable request = FirebaseFunctions.instance.httpsCallable(
         'getBalance');
-
-    String seedsPhrase2 = '';
-    if (network == 0) {
-      seedsPhrase2 =
-          seedsPhrase; // Solana network - here needs seedsPhrase to calculate the balance
-    }
-
     final response = await request.call(<String, dynamic>{
       'network': network,
-      'mnemonic': seedsPhrase2,
+      'mnemonic': seedsPhrase,
       'walletAddress': walletAddress,
       'tokenAddress': tokenAddress
     });
@@ -104,6 +97,7 @@ class ApiCalls {
     List<NFTInfo> nfts = [];
     for (var i = 0; i < responseJson.length; i++) {
       final nftItem = responseJson[i];
+      print('getNFTsByOwner nftItem = $nftItem');
 
       NFTInfo nftInfo = NFTInfo(
           nftItem['tokenType'].toString(),
@@ -113,8 +107,8 @@ class ApiCalls {
           nftItem['image'].toString(),
           nftItem['format'].toString(),
           nftItem['contractAddress'].toString(),
-          0,
-          double.parse(nftItem['balance']),
+          double.parse(nftItem['price'].toString()),
+          double.parse(nftItem['balance'].toString()),
           nftItem['externalUrl'].toString());
       nfts.add(nftInfo);
     }
