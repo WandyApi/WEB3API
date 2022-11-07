@@ -15,6 +15,7 @@ Telegram Community: https://t.me/blackcatweb3developerclub
 
 Best Regards,
 
+![](https://www.wandyapi.xyz/static/media/logo_256.970f2ec1.png)
 https://www.WandyApi.xyz
 
 #Buidlers, let us code the WEB3 world.
