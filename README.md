@@ -1,10 +1,7 @@
 
-**WandyApi Version 0.50**
-
-*WandyApi was officially released @11/01/2022*
+**WandyApi Version 0.90**
 
 **Networks**   0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...
-
 
 :hearts:**Dear Web3 Developers**:hearts: 
 
