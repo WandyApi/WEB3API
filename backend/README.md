@@ -25,7 +25,7 @@ Each one has the capacity to handle millions of users.
 **How to call aws api?**
   Please visit https://api.wandyapi.xyz
 
-**How to install firebase backend**
+**How to install backend on firebase?**
 
 
-**How to install aws backend.**
+**How to install backend on aws?**
