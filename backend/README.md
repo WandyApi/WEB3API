@@ -16,12 +16,12 @@
   You can choose **one of them** to be your own backend.   
   Each one has the capacity to handle millions of users.
 
-4. **How to call firebase api?**  
+4. **How to call api on firebase?**  
   Please check the demo codes.
    
-5. **How to call aws api?**  
+5. **How to call api on aws?**  
 
-6. **How to install backend on firebase?**
+6. **How to install backend on firebase?**  
   https://firebase.google.com/docs/functions/get-started
 
 7. **How to install backend on aws?**
