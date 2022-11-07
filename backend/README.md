@@ -11,7 +11,7 @@
 2. **firebase** - Build api on Google firebase cloud.
   
 3. **aws** - Build api on aws or your own cloud.  
-  - aws supports more apis, please check the codes.
+  aws supports more apis, please check the codes.
     
   You can choose **one of them** to be your own backend.   
   Each one has the capacity to handle millions of users.
@@ -22,5 +22,6 @@
 5. **How to call aws api?**  
 
 6. **How to install backend on firebase?**
+  https://firebase.google.com/docs/functions/get-started
 
 7. **How to install backend on aws?**
