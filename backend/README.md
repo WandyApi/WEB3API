@@ -8,11 +8,9 @@
 5. transferNFT(String mnemonic, String tokenAddress, String tokenId, double amount, String toAddress)
 6. getEstimateGasFee(String fromAddress, String tokenAddress, double amount, String toAddress)
 
-**firebase**- 
-  Build api on Google firebase cloud.
+**firebase** - Build api on Google firebase cloud.
   
-**aws**
-  Build api on aws or your own cloud.
+**aws** - Build api on aws or your own cloud.
   aws supports more apis, please check the codes.
   7.
   8.
