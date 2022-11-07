@@ -21,7 +21,6 @@
   Please check the demo codes.
    
 5. **How to call aws api?**  
-  Please visit https://api.wandyapi.xyz
 
 6. **How to install backend on firebase?**
 
