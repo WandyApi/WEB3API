@@ -4,11 +4,13 @@ var Wallet = require('ethereumjs-wallet');
 const BigNumber = require('bignumber.js');
 var fetch = require('node-fetch');
 const https = require("https");
+require('dotenv').config();
+const { RPC_API_KEY_ETHEREUMPOW} = process.env;
 
 //EthereumPoW RPC Endpoint
-//The key has API limit and it is for testing purpose.
-//Please replace it with your own one
-const web3_eth = new Web3(new Web3.providers.HttpProvider('https://ethw-mainnet.nodereal.io/v1/a9684fbc647e4e02a90ce1a0fb0c277e'));
+//The key has API calls limit and it is for testing purpose.
+//Please replace it with your own one from nodereal.io
+const web3_eth = new Web3(new Web3.providers.HttpProvider('https://ethw-mainnet.nodereal.io/v1/' + RPC_API_KEY_ETHEREUMPOW));
 
 const NFT_ABI = [
   {"constant":false,"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},

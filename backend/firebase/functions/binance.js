@@ -2,6 +2,8 @@ var Web3 = require('web3');
 const Bip39 = require('bip39');
 var Wallet = require('ethereumjs-wallet');
 const BigNumber = require('bignumber.js');
+require('dotenv').config();
+const { NFT_API_KEY_BINANCE} = process.env;
 
 const web3_bsc = new Web3('https://bsc-dataseed1.binance.org:443'); 
 var fetch = require('node-fetch');
@@ -370,14 +372,14 @@ exports.getEstimateGasFee = async (req, res) => {
 
   var nftsMetadata = [];
   
-  //The key has API limit and it is for testing purpose.
-  //Please replace it with your own one
+  //The key has API calls limit and it is for testing purpose.
+  //Please replace it with your own one from moralis.io
 
   const options = {
     method: 'GET',
     headers: {
       Accept: 'application/json',
-      'X-API-Key': 'yLCRFy4StwqVlYmNqK2poPayqrQkYP2U3AtZIw6a4MYzYi14bxHlp5Y1OgI2erxH'
+      'X-API-Key': NFT_API_KEY_BINANCE
     }
   };
   

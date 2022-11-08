@@ -3,11 +3,13 @@ const bip39 = require('bip39')
 const splToken = require("@solana/spl-token")
 const ed25519 = require('ed25519-hd-key');
 const fetch = require('node-fetch');
+require('dotenv').config();
+const { RPC_API_KEY_SOLANA, NFT_API_KEY_SOLANA } = process.env;
 
 //Solana RPC Endpoint
-//The key has API limit and it is for testing purpose.
-//Please replace it with your own one
-const connection = new solanaWeb3.Connection('https://solana-mainnet.g.alchemy.com/v2/c81BWjjN6wrvFck9JSQ7_ackwgScBjG4/');
+//The key has API calls limit and it is for testing purpose.
+//Please replace it with your own one from alchemy.com
+const connection = new solanaWeb3.Connection('https://solana-mainnet.g.alchemy.com/v2/' + RPC_API_KEY_SOLANA +'/');
 
 // async function createWallet(mnemonic){
 exports.createWallet = (req, res) => {
@@ -235,14 +237,14 @@ exports.getNFTsByOwner = async (req, res) => {
 
     const walletAddress = req.walletAddress;
 
-    //The key has API limit and it is for testing purpose.
-    //Please replace it with your own one
+    //The key has API calls limit and it is for testing purpose.
+    //Please replace it with your own one from moralis.io
     const url = 'https://solana-gateway.moralis.io/account/mainnet/' + walletAddress + '/nft';
     const options = {
         method: 'GET',
             headers: {
             Accept: 'application/json',
-            'X-API-Key': 'yLCRFy4StwqVlYmNqK2poPayqrQkYP2U3AtZIw6a4MYzYi14bxHlp5Y1OgI2erxH'
+            'X-API-Key': NFT_API_KEY_SOLANA
         }
     };
 
@@ -269,14 +271,14 @@ exports.getNFTsByOwner = async (req, res) => {
 
 async function getNFTMetadata(walletAddress, mintAddress){
     
-    //The key has API limit and it is for testing purpose.
-    //Please replace it with your own one
+    //The key has API calls limit and it is for testing purpose.
+    //Please replace it with your own one from moralis.io
     const url = 'https://solana-gateway.moralis.io/nft/mainnet/' + mintAddress + '/metadata';
     const options = {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        'X-API-Key': 'yLCRFy4StwqVlYmNqK2poPayqrQkYP2U3AtZIw6a4MYzYi14bxHlp5Y1OgI2erxH'
+        'X-API-Key': NFT_API_KEY_SOLANA
       }
     };
     

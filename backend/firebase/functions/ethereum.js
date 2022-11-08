@@ -3,11 +3,13 @@ const Bip39 = require('bip39');
 var Wallet = require('ethereumjs-wallet');
 const BigNumber = require('bignumber.js');
 var fetch = require('node-fetch');
+require('dotenv').config();
+const { RPC_API_KEY_ETHEREUM, NFT_API_KEY_ETHEREUM } = process.env;
 
 //Ethereum RPC Endpoint
-//The key has API limit and it is for testing purpose.
-//Please replace it with your own one
-const web3_eth = new Web3(new Web3.providers.HttpProvider('https://eth-mainnet.g.alchemy.com/v2/Y7WcCwKK4sdbyil4WEVGW1v7lBvP6tRk'));
+//The key has API calls limit and it is for testing purpose.
+//Please replace it with your own one from alchemy.com
+const web3_eth = new Web3(new Web3.providers.HttpProvider('https://eth-mainnet.g.alchemy.com/v2/' + RPC_API_KEY_ETHEREUM));
 
 const NFT_ABI = [
   {"constant":false,"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},
@@ -462,9 +464,9 @@ exports.getNFTsByOwner = async (req, res) => {
 // async function getNFTsByOwner(walletAddress) {
   let walletAddress = req.walletAddress;
 
-  //The key has API limit and it is for testing purpose.
-  //Please replace it with your own one
-  const apiKey = "Y7WcCwKK4sdbyil4WEVGW1v7lBvP6tRk";
+  //The key has API calls limit and it is for testing purpose.
+  //Please replace it with your own one from alchemyapi.io
+  const apiKey = NFT_API_KEY_ETHEREUM;
   const baseURL = `https://eth-mainnet.alchemyapi.io/v2/${apiKey}/getNFTs/`;
   const fetchURL = `${baseURL}?owner=${walletAddress}`;
   var requestOptions = {
