@@ -37,17 +37,6 @@ class Utilities {
     return tokenList;
   }
 
-  Future<String> transferToken(int network, String seedsPhrase, int id,
-      String toAddress) async {
-    List tokenList = Constants.tokens[network];
-    final result = await ApiCalls().transfer(
-        network, seedsPhrase, toAddress, tokenList[id], 100);
-    if (kDebugMode) {
-      print(result);
-    }
-    return result;
-  }
-
   Future<List<NFTInfo>> queryNFTs(int network, String walletAddress) async {
     List<NFTInfo> nfts = await ApiCalls().getNFTsByOwner(
         network, walletAddress);

@@ -85,6 +85,7 @@ exports.getBalance = async (req, res) => {
     return jsonResult
   }
 
+// async function transfer(mnemonic, tokenAddress, toAddress, amount){   
 exports.transfer = async (req, res) => {
     var mnemonic = req.mnemonic;
     const tokenAddress = req.tokenAddress;
@@ -173,7 +174,6 @@ exports.transfer = async (req, res) => {
             payerKeypair.publicKey,
             amount
         );
-
 
           let result = {
             'error': '',
@@ -484,6 +484,3 @@ async function getTokensBalance (walletAddress) {
 
   return jsonResult
 }
-
-
-

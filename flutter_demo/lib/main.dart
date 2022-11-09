@@ -6,11 +6,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_demo/api_calls.dart';
 import 'package:flutter_demo/screens/create_wallet.dart';
 import 'package:flutter_demo/screens/get_balance.dart';
 import 'package:flutter_demo/screens/get_nfts.dart';
 import 'package:flutter_demo/screens/retrieve_wallet.dart';
+import 'package:flutter_demo/screens/transfer_token.dart';
 import 'package:flutter_demo/utilities.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'constants.dart';
@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
         CreateWalletScreen.id: (context) => CreateWalletScreen(),
         RetrieveWalletScreen.id: (context) => RetrieveWalletScreen(),
         GetBalanceScreen.id: (context) => GetBalanceScreen(),
-        GetNFTsScreen.id: (context) => GetNFTsScreen()
+        GetNFTsScreen.id: (context) => GetNFTsScreen(),
+        TransferTokenScreen.id: (context) => TransferTokenScreen()
       }
     );
   }
@@ -167,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () {
+                    Navigator.pushNamed(context, TransferTokenScreen.id);
                   },
                   child: const Text('Transfer Token'),
                 )
