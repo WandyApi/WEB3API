@@ -1,6 +1,12 @@
 **Flutter Demo of WandyApi**
 -- Support Android & iOS
 
+**Dowload Demo**  
+
+**Screenshot**  
+![Screenshot](screenshots/Screenshot_1.png)
+![Screenshot](screenshots/Screenshot_2.png)
+
 **How to build and run flutter_demo**
 1. Enviroments: Flutter 3.3.6 • Dart 2.18.2 • Android SDK 33  • Xcode 14.0.1
 2. flutter pub get
@@ -9,7 +15,6 @@
 5. flutter build ios 
 6. open ios/Runner.xcworkspace 
 7. run in Xcode (https://docs.flutter.dev/deployment/ios)
-8. ![Screenshot](screenshots/Screenshot_1.png)
 
 **How to install Flutter**
 1. Install Android Studio - https://developer.android.com/studio/install
