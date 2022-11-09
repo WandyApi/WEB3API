@@ -1,8 +1,7 @@
-**1. Flutter Demo of WandyApi**
+***1. Flutter Demo of WandyApi***
 -- Support Android & iOS
 
-**2. Dowload Demo**  
-![APK](flutter_demo_debug_v0.91.apk)
+**2. Dowload Demo** ![APK](flutter_demo_debug_v0.91.apk)
 
 **3. Screenshots**  
 ![Screenshot](screenshots/Screenshot_1.png)
