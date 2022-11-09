@@ -10,12 +10,13 @@
 
 2. **firebase** - Build api on Google firebase cloud.  
    Please create a config file **.env** in firebase/functions  
-   RPC_API_KEY_SOLANA="xxxxxxxxxx"  
+   *RPC_API_KEY_SOLANA="xxxxxxxxxx"  
    RPC_API_KEY_ETHEREUM="xxxxxxxxxx"  
    RPC_API_KEY_ETHEREUMPOW="xxxxxxxxxx"  
    NFT_API_KEY_SOLANA="xxxxxxxxxx"  
    NFT_API_KEY_BINANCE="xxxxxxxxxx"  
-   NFT_API_KEY_ETHEREUM="xxxxxxxxxx"  
+   NFT_API_KEY_ETHEREUM="xxxxxxxxxx"*
+   
   
 3. **aws** - Build api on aws or your own cloud.  
   aws supports more apis, please check the codes.
