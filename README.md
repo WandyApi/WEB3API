@@ -4,7 +4,8 @@
 **Networks**  
 0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...  
 
-$\textcolor{red}{Build at your own risk}$
+$\color[RGB]{155,127,0} Build at your own risk$
+
 ===================================================================================
 
 :heart_eyes_cat:**Dear Web3 Developers**:heart_eyes_cat: 
