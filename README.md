@@ -5,7 +5,7 @@
 0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...  
 
 **Build at your own risk**  
-$\colorbox{red}{text}$
+$\textcolor{red}{text}$
 ===================================================================================
 
 :heart_eyes_cat:**Dear Web3 Developers**:heart_eyes_cat: 
