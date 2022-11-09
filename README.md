@@ -1,9 +1,10 @@
 
-**WandyApi** - a free and fast Web3 api which helps developers to build Web3 apps or turn Web2 apps with Web3 features in a short time.
+**WandyApi** - a free and fast Web3 api which may help developers to build Web3 apps or turn Web2 apps with Web3 features in a short time.
 
-**Networks**   0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...  
+**Networks**  
+0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...  
 
-*WandyApi is not ready for commercial use, you need to build at your own risk.*
+**Build at your own risk**
 
 ===================================================================================
 
