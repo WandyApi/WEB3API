@@ -1,4 +1,4 @@
-**WandyApi Backend**
+## WandyApi Backend
 
 1. **API List**  
   (1) *createWallet(String mnemonic)*  
