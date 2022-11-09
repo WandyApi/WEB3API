@@ -16,6 +16,7 @@
    NFT_API_KEY_SOLANA="xxxxxxxxxx"  
    NFT_API_KEY_BINANCE="xxxxxxxxxx"  
    NFT_API_KEY_ETHEREUM="xxxxxxxxxx"*
+   ![.env](images/png.env.png)
    
   
 3. **aws** - Build api on aws or your own cloud.  
