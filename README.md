@@ -1,13 +1,15 @@
 
-**WandyApi Version 0.90**
+**WandyApi** - a free and fast Web3 api which helps developers to build Web3 apps or turn Web2 apps with Web3 features in a short time.
 
-**Networks**   0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...
+**Networks**   0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...  
+
+*WandyApi is not ready for commercial use, you need to build at your own risk.*
 
 ===================================================================================
 
 :heart_eyes_cat:**Dear Web3 Developers**:heart_eyes_cat: 
 
-For Demo & API supports, please please join :black_cat:**Black Cat Web3 Developer Club**:black_cat:
+For Demo & API supports, please please join :black_cat:**Black Cat Web3 Developer Club**:black_cat:  
 
 Twitter Community: https://twitter.com/i/communities/1584793467749687296
 
