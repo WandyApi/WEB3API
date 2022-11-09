@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_demo/api_calls.dart';
+import 'package:flutter_demo/screens/create_wallet.dart';
+import 'package:flutter_demo/screens/get_balance.dart';
+import 'package:flutter_demo/screens/get_nfts.dart';
+import 'package:flutter_demo/screens/retrieve_wallet.dart';
 import 'package:flutter_demo/utilities.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'constants.dart';
@@ -28,7 +32,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.90'),
+      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.91'),
+      routes: {
+        CreateWalletScreen.id: (context) => CreateWalletScreen(),
+        RetrieveWalletScreen.id: (context) => RetrieveWalletScreen(),
+        GetBalanceScreen.id: (context) => GetBalanceScreen(),
+        GetNFTsScreen.id: (context) => GetNFTsScreen()
+      }
     );
   }
 }
@@ -44,9 +54,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  String seedsPhrase = '';
-  String walletAddress = '';
-  int network = 0;
   String networkName = Constants.networks[0];
   static const snackBar = SnackBar(
     content: Text('Calling WandyApi ...'),
@@ -70,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 50),
 
             Text(
-              '$network - ${Constants.networks[network]}',
+              '${Constants.networkId} - ${Constants.networks[Constants.networkId]}',
               style: Theme.of(context).textTheme.headline6,
             ),
 
@@ -105,16 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onPressed: () async {
                     // create a new wallet
-
-                    seedsPhrase = Utilities().generateMnemonic();
-                    if (kDebugMode) {
-                      print(seedsPhrase);
-                    }
-                    walletAddress = await ApiCalls().createWallet(network, seedsPhrase);
-                    if (kDebugMode) {
-                      print('seedsPhrase = $seedsPhrase walletAddress = $walletAddress');
-                    }
-
+                    Navigator.pushNamed(context, CreateWalletScreen.id);
                   },
                   child: const Text('Create Wallet'),
                 )
@@ -133,14 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onPressed: () async {
                     // retrieve a wallet
-                    if(seedsPhrase.isNotEmpty) {
-                      walletAddress =
-                      await ApiCalls().createWallet(network, seedsPhrase);
-                      if (kDebugMode) {
-                        print(
-                            'seedsPhrase = $seedsPhrase walletAddress = $walletAddress');
-                      }
-                    }
+                    Navigator.pushNamed(context, RetrieveWalletScreen.id);
                   },
                   child: const Text('Retrieve Wallet'),
                 )
@@ -158,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () async {
-                        await Utilities().queryTokensBalance(network, Constants.demoWalletAddresses[network]);
+                    Navigator.pushNamed(context, GetBalanceScreen.id);
                   },
                   child: const Text('Get Balance'),
                 )
@@ -192,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () async {
-                    await Utilities().queryNFTs(network, Constants.demoWalletAddresses[network]);
+                    Navigator.pushNamed(context, GetNFTsScreen.id);
                   },
                   child: const Text('Get NFTs'),
                 )
@@ -239,11 +230,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  showNetworkSelectionDialog() async {
+  void showNetworkSelectionDialog() async {
     await showDialog(
         context: context,
         builder: (context) {
-          int selectedIndex = network;
+          int selectedIndex = Constants.networkId;
           return AlertDialog(
             title: const Text("Please select a network"),
             content: StatefulBuilder(builder: (context, StateSetter setState) {
@@ -286,7 +277,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: const Text("OK"),
                   onPressed: (){
                     networkName = Constants.networks[selectedIndex];
-                    network = selectedIndex;
+                    Constants.networkId = selectedIndex;
                     setState(() {
 
                     });

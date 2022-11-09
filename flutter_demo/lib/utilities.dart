@@ -5,7 +5,9 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:bip39/bip39.dart' as bip39;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_demo/api_calls.dart';
 import 'package:flutter_demo/nft_info.dart';
 import 'package:flutter_demo/token_info.dart';
@@ -18,17 +20,21 @@ class Utilities {
     return bip39.generateMnemonic();
   }
 
-  Future<void> queryTokensBalance(int network, String walletAddress) async {
+  Future<List<TokenInfo>> queryTokensBalance(int network, String walletAddress) async {
     List<TokenInfo> tokenList = Constants.tokens[network];
 
-    tokenList.forEach((tokenInfo) async {
+    for(var i = 0; i < tokenList.length; i ++) {
+
       double balance = await ApiCalls().getBalance(
-          network, walletAddress, tokenInfo.tokenAddress);
-      balance = balance / pow(10, tokenInfo.decimals);
+          network, walletAddress, tokenList[i].tokenAddress);
+      balance = balance / pow(10, tokenList[i].decimals);
       if (kDebugMode) {
-        print('${Constants.networks[network]} ${tokenInfo.symbol} : $balance');
+        print('${Constants.networks[network]} ${tokenList[i].symbol} : $balance');
       }
-    });
+      tokenList[i].balance = balance;
+    };
+
+    return tokenList;
   }
 
   Future<String> transferToken(int network, String seedsPhrase, int id,
@@ -88,4 +94,32 @@ class Utilities {
     }
   }
 
+  void showLoadingDialog(BuildContext context) async {
+
+    showDialog(
+
+        barrierDismissible: false,
+        context: context,
+        builder: (_) {
+          return Dialog(
+            // The background color
+            backgroundColor: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  // The loading indicator
+                  CircularProgressIndicator(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  // Some text
+                  Text('Loading...')
+                ],
+              ),
+            ),
+          );
+        });
+  }
 }
