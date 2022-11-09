@@ -22,7 +22,7 @@
 3. **aws** - Build api on aws or your own cloud.  
   aws supports more apis, please check the codes.
     
-  You can choose **one of them** to be your own backend.   
+  You can choose $\color[RGB]{255,66,66} one of them$ to be your own backend.   
   Each one has the capacity to handle millions of users.
 
 4. **How to call api on firebase?**  
