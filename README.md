@@ -2,7 +2,7 @@
 **WandyApi** - a free and fast Web3 Api & Demo which may help developers to build Web3 apps or turn Web2 apps with Web3 features in a short time.
 
 **Networks**  
-0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW  ... ...  
+<pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW  ... ... </pre> 
 
 $\color[RGB]{255,66,66} DYOR$ - Do Your Own Research.  
 $\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk. 
