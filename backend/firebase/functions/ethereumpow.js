@@ -463,9 +463,8 @@ exports.getEstimateGasFee = async (req, res) => {
  }
 
 
-//  async function getNFTs(walletAddress) {
-  exports.getNFTsByOwner = async (req, res) => {
-
+//  async function getNFTsByOwner(walletAddress) {
+exports.getNFTsByOwner = async (req, res) => {
   let walletAddress = req.walletAddress;
   
   //Tops NFTs on EthereumPow
@@ -482,7 +481,8 @@ exports.getEstimateGasFee = async (req, res) => {
     '0x60e4d786628fea6478f785a6d7e704777c86a7c6', //MutantApeYachtClub
     '0x9f09dcb4ddc557c1ac2c02062a415a27860afb80', //OpenTigers
     '0x9feb3ab8a40b620b68a112ea0f82c6cf06b5c6fb', //WENS.ETHW
-    '0x9e32b72f8c8c97d1c2fab030ad83b65a74516a80'  //WENS.AWSB
+    '0x9e32b72f8c8c97d1c2fab030ad83b65a74516a80', //WENS.AWSB
+    '0x9368bf5771d4dc15d3cc4fea0b04a5ce9884b2ef'  //Black Cat Web3 Developer Club
 ];
 
   var nftsMetadata = [];
@@ -590,4 +590,3 @@ exports.getEstimateGasFee = async (req, res) => {
         return jsonResult;
     }  
   }
-

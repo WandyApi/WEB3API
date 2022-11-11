@@ -42,7 +42,7 @@ class Utilities {
         network, walletAddress);
     for (var nftInfo in nfts) {
       if (kDebugMode) {
-        print('${nftInfo.contractAddress}, ${nftInfo.title}, ${nftInfo.tokenId}, ${nftInfo.image}, ${nftInfo.externalUrl}');
+        print('${nftInfo.contractAddress}, ${nftInfo.title}, ${nftInfo.tokenId}');
       }
     }
     return nfts;
