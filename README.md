@@ -4,7 +4,8 @@
 **Networks**  
 0 - Solana   1 - Binance   2 - Ethereum   3 - EthereumPoW  ... ...  
 
-$\color[RGB]{255,66,66} Build At Your Own Risk$
+$\color[RGB]{255,66,66} DYOR$ - Do Your Own Research. 
+$\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk. 
 
 ===================================================================================
 
