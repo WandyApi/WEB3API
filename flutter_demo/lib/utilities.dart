@@ -60,7 +60,7 @@ class Utilities {
   }
 
 //Query token price of Binance exchange
-  Future<void> queryTokenPrice(String tokenSymbol) async {
+  Future<double> queryTokenPrice(String tokenSymbol) async {
     Map<String, String> headers = {};
     headers['Accept'] = 'application/json';
     headers['Access-Control-Allow-Origin'] = '*';
@@ -77,10 +77,42 @@ class Utilities {
     );
 
     final body = json.decode(response.body) as Map;
-    double usdValue = double.parse(body['price']);
-    if (kDebugMode) {
-      print('$tokenSymbol $usdValue');
+    double usdValue = 0;
+
+    if(body['price'] != null) {
+      usdValue = double.parse(body['price']);
+      if (kDebugMode) {
+        print('$tokenSymbol $usdValue');
+      }
     }
+    return usdValue;
+  }
+
+  //Query token list from coinmarketcap.com/api/
+  Future<double> queryTokenList() async {
+
+    Map<String, String> headers = {};
+    headers['Accept'] = 'application/json';
+    headers['X-CMC_PRO_API_KEY'] = 'ca3f0c0a-492b-4f75-817d-1055b1266ff2';
+
+    http.Response response = await http.get(
+      Uri.http(
+        'sandbox-api.coinmarketcap.com',
+        '/v1/cryptocurrency/listings/latest',
+        {
+          'start': '1',
+          'limit': '5000',
+          'convert': 'USD',
+        },
+      ),
+      headers: headers,
+    );
+
+    final body = json.decode(response.body);
+
+    print(body['data']);
+    double usdValue = 0;
+    return usdValue;
   }
 
   void showLoadingDialog(BuildContext context) async {

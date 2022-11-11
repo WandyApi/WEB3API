@@ -9,6 +9,7 @@ class TokenInfo {
   String tokenAddress;
   int decimals;
   double balance;
+  double price;
 
   TokenInfo(
       this.name,
@@ -16,6 +17,7 @@ class TokenInfo {
       this.decimals,
       this.logo,
       this.tokenAddress,
-      this.balance
+      this.balance,
+      this.price
       );
 }

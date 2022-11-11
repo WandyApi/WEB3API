@@ -13,6 +13,7 @@ class Constants {
       9,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/9721.png',
       '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU',
+      0,
       0);
 
   static  TokenInfo USDT = TokenInfo(
@@ -21,6 +22,7 @@ class Constants {
       6,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/825.png',
       'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB',
+      0,
       0);
 
   static  TokenInfo SOL = TokenInfo(
@@ -29,6 +31,7 @@ class Constants {
       9,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png',
       'SOL',
+      0,
       0);
 
 
@@ -39,6 +42,7 @@ class Constants {
       8,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/74.png',
       '0xba2ae424d960c26247dd6c32edc70b295c744c43',
+      0,
       0);
 
   static  TokenInfo GMT = TokenInfo(
@@ -47,6 +51,7 @@ class Constants {
       8,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/18069.png',
       '0x3019BF2a2eF8040C242C9a4c5c4BD4C81678b2A1',
+      0,
       0);
 
   static  TokenInfo BNB = TokenInfo(
@@ -55,6 +60,7 @@ class Constants {
       18,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
       'BNB',
+      0,
       0);
 
 
@@ -65,13 +71,16 @@ class Constants {
       18,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/5994.png',
       '0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce',
+      0,
       0);
+
   static  TokenInfo USDC = TokenInfo(
       'USD Coin',
       'USDC',
       6,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png',
       '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+      0,
       0);
   static  TokenInfo ETH = TokenInfo(
       'Ethereum',
@@ -79,6 +88,7 @@ class Constants {
       18,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
       'ETH',
+      0,
       0);
 
 //EthereumPoW network tokens samples
@@ -88,6 +98,7 @@ class Constants {
       18,
       'https://s2.coinmarketcap.com/static/img/coins/64x64/21296.png',
       'ETHW',
+      0,
       0);
 
   static  List<TokenInfo> solanaTokens = [SAMO, USDT, SOL];

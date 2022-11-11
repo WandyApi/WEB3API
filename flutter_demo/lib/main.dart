@@ -9,9 +9,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_demo/screens/create_wallet.dart';
 import 'package:flutter_demo/screens/get_balance.dart';
 import 'package:flutter_demo/screens/get_nfts.dart';
+import 'package:flutter_demo/screens/query_price.dart';
 import 'package:flutter_demo/screens/retrieve_wallet.dart';
 import 'package:flutter_demo/screens/transfer_token.dart';
-import 'package:flutter_demo/utilities.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'constants.dart';
 import 'firebase_options.dart';
@@ -32,13 +32,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.91'),
+      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.92'),
       routes: {
         CreateWalletScreen.id: (context) => CreateWalletScreen(),
         RetrieveWalletScreen.id: (context) => RetrieveWalletScreen(),
         GetBalanceScreen.id: (context) => GetBalanceScreen(),
         GetNFTsScreen.id: (context) => GetNFTsScreen(),
-        TransferTokenScreen.id: (context) => TransferTokenScreen()
+        TransferTokenScreen.id: (context) => TransferTokenScreen(),
+        QueryPriceScreen.id: (context) => QueryPriceScreen()
       }
     );
   }
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               "assets/icon_wandyapi.png",
               height: 72,
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 40),
 
             Text(
               '${Constants.networkId} - ${Constants.networks[Constants.networkId]}',
@@ -204,6 +205,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                   },
                   child: const Text('Transfer NFT'),
+                )
+            ),
+
+            const SizedBox(height: 25),
+            SizedBox(
+                height: 40,
+                width: 200,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () async {
+                    Navigator.pushNamed(context, QueryPriceScreen.id);
+                  },
+                  child: const Text('Query Price'),
                 )
             ),
 
