@@ -6,7 +6,7 @@ A free and fast Web3 Api & Demo which may help developers to build Web3 apps or 
 <pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW  ... ... </pre> 
 
 **Web3 App**  
-A Web3 app should be very light and based on different blockchain networks and services/dApps (like wallet, distributed database, storage & message etc.).  
+A Web3 app should be very light and based on different blockchain networks and services/dApps (like wallet, decentralized database, storage & message etc.).  
 But the real world is not so beautiful.
 
 **Market**  
