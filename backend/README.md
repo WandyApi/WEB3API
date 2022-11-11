@@ -29,11 +29,13 @@
   Please check the demo codes.
    
 5. **How to call api on aws?**  
+  Coming soon ...
 
 6. **How to install backend on firebase?**  
   https://firebase.google.com/docs/functions/get-started
 
 7. **How to install backend on aws?**  
+  Coming soon ...
 
 8. **Seeds Phrase**  
   The Seeds Phrase is to used to generate wallet address & make token and nft transfers on the server-side.  
