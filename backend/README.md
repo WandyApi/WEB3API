@@ -9,7 +9,7 @@
   (6) *getEstimateGasFee(String fromAddress, String tokenAddress, double amount, String toAddress)*  
 
 2. **firebase** - Build Node.js api on Google firebase cloud.  
-   Please create a config file **$\color[RGB]{255,66,66}.env$** in firebase/functions  
+   Important: Please create a config file **$\color[RGB]{255,66,66}.env$** in firebase/functions  
    *RPC_API_KEY_SOLANA="xxxxxxxxxx"  
    RPC_API_KEY_ETHEREUM="xxxxxxxxxx"  
    RPC_API_KEY_ETHEREUMPOW="xxxxxxxxxx"  
