@@ -1,5 +1,6 @@
 
-**WandyApi** - a free and fast Web3 Api & Demo which may help developers to build Web3 apps or turn Web2 apps with Web3 features in a short time.
+## WandyApi  
+A free and fast Web3 Api & Demo which may help developers to build Web3 apps or turn Web2 apps with Web3 features in a short time.
 
 **Networks**  
 <pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW  ... ... </pre> 
