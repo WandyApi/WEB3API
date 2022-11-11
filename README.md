@@ -8,7 +8,7 @@ $\color[RGB]{255,66,66} DYOR$ - Do Your Own Research.
 $\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk. 
 
 **Web3 App**  
-A Web3 app should be very light and based on different blockchain networks and services/dApps (like wallet, distributed database, storage & message etc.)
+A Web3 app should be very light and based on different blockchain networks and services/dApps (like wallet, distributed database, storage & message etc.).  
 But real world is not so beautiful.
 
 **Market**  
