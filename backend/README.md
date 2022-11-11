@@ -33,4 +33,8 @@
 6. **How to install backend on firebase?**  
   https://firebase.google.com/docs/functions/get-started
 
-7. **How to install backend on aws?**
+7. **How to install backend on aws?**  
+
+8. **Seeds Phrase**
+  The Seeds Phrase is to used to generate wallet address & and make transfers on the server-side.
+  We recommend using a Secret Manager to secure your Seeds Phrase or Private Key.
