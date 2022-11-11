@@ -6,6 +6,7 @@
 **2. Screenshots**  
 ![Screenshot](screenshots/Screenshot_1.png)
 ![Screenshot](screenshots/Screenshot_2.png)
+![Screenshot](screenshots/Screenshot_3.png)
   
   
 **3. How to build and run flutter_demo**
