@@ -36,7 +36,7 @@
 7. **How to install backend on aws?**  
 
 8. **Seeds Phrase**  
-  The Seeds Phrase is to used to generate wallet address & and make transfers on the server-side.  
+  The Seeds Phrase is to used to generate wallet address & make token and nft transfers on the server-side.  
   We recommend using a Secret Manager to secure your Seeds Phrase or Private Key.  
   -- Google Cloud Secret Manager  
   -- AWS Secrets Manager  
