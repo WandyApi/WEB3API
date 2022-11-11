@@ -11,12 +11,12 @@
 
 2. **firebase** - Build Node.js api on Google firebase cloud.  
    Important: Please create a config file **$\color[RGB]{255,66,66}.env$** in firebase/functions  
-   *RPC_API_KEY_SOLANA="xxxxxxxxxx"  
+   <pre>RPC_API_KEY_SOLANA="xxxxxxxxxx"  
    RPC_API_KEY_ETHEREUM="xxxxxxxxxx"  
    RPC_API_KEY_ETHEREUMPOW="xxxxxxxxxx"  
    NFT_API_KEY_SOLANA="xxxxxxxxxx"  
    NFT_API_KEY_BINANCE="xxxxxxxxxx"  
-   NFT_API_KEY_ETHEREUM="xxxxxxxxxx"*  
+   NFT_API_KEY_ETHEREUM="xxxxxxxxxx"</pre>  
    ![.env](images/png.env.png)
    
   
