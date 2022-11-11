@@ -4,15 +4,16 @@
 **Networks**  
 <pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW  ... ... </pre> 
 
-$\color[RGB]{255,66,66} DYOR$ - Do Your Own Research.  
-$\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk. 
-
 **Web3 App**  
 A Web3 app should be very light and based on different blockchain networks and services/dApps (like wallet, distributed database, storage & message etc.).  
 But real world is not so beautiful.
 
 **Market**  
 The global blockchain technology market size was valued at USD 5.92 billion in 2021 and is expected to grow at a compound annual growth rate (CAGR) of 85.9% from 2022 to 2030. [Link](https://www.grandviewresearch.com/industry-analysis/blockchain-technology-market)
+
+**Important**  
+$\color[RGB]{255,66,66} DYOR$ - Do Your Own Research.  
+$\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk. 
 
 ===================================================================================
 
