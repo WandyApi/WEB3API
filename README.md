@@ -3,7 +3,12 @@
 A free and fast Web3 Api & Demo which may help developers to build Web3 apps or turn Web2 apps with Web3 features support in a short time.
 
 **Networks**  
-<pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW     4 - Polygen ... ... </pre> 
+<pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW     4 - Polygon ... ... </pre> 
+
+
+**Gas Fee**  
+<pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW     4 - Polygen ... ...  
+0.000005         0.0007            0.002              0.004               0.05</pre>
 
 **Web3 App**  
 A Web3 app should be very light and based on different blockchain networks and services/dApps (like wallet, decentralized database, storage & message etc.).  
