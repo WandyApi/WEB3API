@@ -40,7 +40,6 @@ class _TransferTokenScreenState extends State<TransferTokenScreen> {
 
   Future<void> transferToken() async {
 
-
     Future.delayed(const Duration(milliseconds: 100), () async {
 
       Utilities().showLoadingDialog(context);

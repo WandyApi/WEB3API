@@ -6,7 +6,7 @@ var fetch = require('node-fetch');
 require('dotenv').config();
 const { RPC_API_KEY_ETHEREUM, NFT_API_KEY_ETHEREUM } = process.env;
 
-//Ethereum RPC Endpoint
+//Ethereum RPC by 3rd parties like alchemy.com, quicknode.com
 //The key has API calls limit and it is for testing purpose.
 //Please replace it with your own one from alchemy.com
 const web3_eth = new Web3(new Web3.providers.HttpProvider('https://eth-mainnet.g.alchemy.com/v2/' + RPC_API_KEY_ETHEREUM));

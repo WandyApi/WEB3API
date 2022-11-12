@@ -5,6 +5,8 @@ const BigNumber = require('bignumber.js');
 require('dotenv').config();
 const { NFT_API_KEY_BINANCE} = process.env;
 
+//Binance RPC by binance.org.
+//Please use 3rd party nodes like alchemy.com, quicknode.com
 const web3_bsc = new Web3('https://bsc-dataseed1.binance.org:443'); 
 var fetch = require('node-fetch');
 

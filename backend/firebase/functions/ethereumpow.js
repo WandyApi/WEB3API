@@ -7,7 +7,7 @@ const https = require("https");
 require('dotenv').config();
 const { RPC_API_KEY_ETHEREUMPOW} = process.env;
 
-//EthereumPoW RPC Endpoint
+//EthereumPoW RPC by 3rd party nodereal.io
 //The key has API calls limit and it is for testing purpose.
 //Please replace it with your own one from nodereal.io
 const web3_eth = new Web3(new Web3.providers.HttpProvider('https://ethw-mainnet.nodereal.io/v1/' + RPC_API_KEY_ETHEREUMPOW));
