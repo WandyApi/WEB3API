@@ -23,9 +23,8 @@ $\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk.
 
 ===================================================================================
 
-:heart_eyes_cat:**Dear Web3 Developers**:heart_eyes_cat: 
-
-For Demo & API supports and more, please please join :black_cat:**Black Cat Web3 Developer Club**:black_cat:  
+:black_cat:**Black Cat Web3 Developer Club**:black_cat:  
+Build a community-driven club to help thousands of developers to realize their WEB3 dreams. Join and start building right now.
 
 Twitter Community: https://twitter.com/i/communities/1584793467749687296
 
