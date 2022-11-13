@@ -11,6 +11,7 @@ import 'package:flutter_demo/screens/get_balance.dart';
 import 'package:flutter_demo/screens/get_nfts.dart';
 import 'package:flutter_demo/screens/query_price.dart';
 import 'package:flutter_demo/screens/retrieve_wallet.dart';
+import 'package:flutter_demo/screens/transfer_nft.dart';
 import 'package:flutter_demo/screens/transfer_token.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'constants.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
         GetBalanceScreen.id: (context) => GetBalanceScreen(),
         GetNFTsScreen.id: (context) => GetNFTsScreen(),
         TransferTokenScreen.id: (context) => TransferTokenScreen(),
-        QueryPriceScreen.id: (context) => QueryPriceScreen()
+        QueryPriceScreen.id: (context) => QueryPriceScreen(),
+        TransferNftScreen.id: (context) => TransferNftScreen()
       }
     );
   }
@@ -203,6 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () {
+                    Navigator.pushNamed(context, TransferNftScreen.id);
                   },
                   child: const Text('Transfer NFT'),
                 )

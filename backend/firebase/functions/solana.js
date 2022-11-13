@@ -9,10 +9,10 @@ const { RPC_API_KEY_SOLANA, NFT_API_KEY_SOLANA } = process.env;
 //Solana RPC by 3rd parties like alchemy.com, quicknode.com
 //The key has API calls limit and it is for testing purpose.
 //Please replace it with your own one from alchemy.com
-const connection = new solanaWeb3.Connection('https://solana-mainnet.g.alchemy.com/v2/' + RPC_API_KEY_SOLANA +'/');
+// const connection = new solanaWeb3.Connection('https://solana-mainnet.g.alchemy.com/v2/' + RPC_API_KEY_SOLANA +'/');
 
 //Solana RPC by Solana.com
-//const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
+const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
 
 // async function createWallet(mnemonic){
 exports.createWallet = (req, res) => {
