@@ -27,9 +27,18 @@
   Each one has the capacity to handle millions of users.
 
 4. **Unit Test**  
-  Test web3 functions without installing the backend, here are the testing samples of Ethereum:  
+  Test web3 functions without installing the firebase backend, here are the testing samples of Ethereum:  
   - get the balance of SHIBA token  
   - transfer 1000 SHIBA token to a wallet
+  <pre>
+  node version : v16.18.0, please install all the modules:  
+  - node i web3
+  - node i bip39
+  - node i ethereumjs-wallet
+  - node i bignumber.js
+  - node i node-fetch
+  - node i dotenv
+  </pre>
   <pre>
   async function getBalance(walletAddress, tokenAddress){  
   // exports.getBalance = async (req, res) => {
