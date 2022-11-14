@@ -32,14 +32,17 @@
   - transfer 1000 SHIBA token to a wallet
   <pre>
   node version : v16.18.0, please install all the modules for ethereum.js:
-  WandyApi@BlackCat-MBP functions %  node i web3
-  WandyApi@BlackCat-MBP functions %  node i bip39
-  WandyApi@BlackCat-MBP functions %  node i ethereumjs-wallet
-  WandyApi@BlackCat-MBP functions %  node i bignumber.js
-  WandyApi@BlackCat-MBP functions %  node i node-fetch
-  WandyApi@BlackCat-MBP functions %  node i dotenv
+  WandyApi@BlackCat-MBP functions % node i web3
+  WandyApi@BlackCat-MBP functions % node i bip39
+  WandyApi@BlackCat-MBP functions % node i ethereumjs-wallet
+  WandyApi@BlackCat-MBP functions % node i bignumber.js
+  WandyApi@BlackCat-MBP functions % node i node-fetch
+  WandyApi@BlackCat-MBP functions % node i dotenv
 </pre>
   <pre>
+  
+  Update ethereum.js:
+  
   async function getBalance(walletAddress, tokenAddress){  
   // exports.getBalance = async (req, res) => {
   //     let walletAddress = req.walletAddress;
