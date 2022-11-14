@@ -27,7 +27,8 @@
   Each one has the capacity to handle millions of users.
 
 4. **Unit Test**  
-  <pre> Test web3 functions without installing backend, here are the testing samples of Ethereum:  
+  Test web3 functions without installing the backend, here are the testing samples of Ethereum:  
+  <pre>
   async function getBalance(walletAddress, tokenAddress){  
   // exports.getBalance = async (req, res) => {
   //     let walletAddress = req.walletAddress;
