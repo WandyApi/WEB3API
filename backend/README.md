@@ -26,19 +26,49 @@
   You can choose $\color[RGB]{255,66,66} One Of Them$ to be your own backend.   
   Each one has the capacity to handle millions of users.
 
-4. **How to call api on firebase?**  
+4. **Unit Test**  
+  <pre> Test web3 functions without installing backend, here are the testing samples of Ethereum:  
+  async function getBalance(walletAddress, tokenAddress){  
+  // exports.getBalance = async (req, res) => {
+  //     let walletAddress = req.walletAddress;
+  //     let tokenAddress = req.tokenAddress;
+  ...  
+  async function transfer(mnemonic, tokenAddress, toAddress, amount){   
+  // exports.transfer = async (req, res) => {
+    // var mnemonic = req.mnemonic;
+    // var toAddress = req.toAddress;
+    // const tokenAddress = req.tokenAddress;
+    // const amount = Number(req.amount);
+   ...  
+   // Unit Test
+// SHIBA Token https://etherscan.io/token/0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE
+getBalance('0x057Fc44D60F1D31F3401d9B2739C7F37365A2689', '0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE').then(
+   (data) => {
+     console.log(data);
+   }
+ );
+
+// Please fill the mnemonic
+transfer('mnemonic', '0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE', '0x5025b56d1f527EDaF39708B149A4FA322EA475eE', 1000 * 1000000000000000000.00).then(
+   (data) => {
+     console.log(data);
+   }
+ );
+</pre>
+  
+5. **How to call api on firebase?**  
   Please check the demo codes.
    
-5. **How to call api on aws?**  
+6. **How to call api on aws?**  
   Coming soon ...
 
-6. **How to install backend on firebase?**  
+7. **How to install backend on firebase?**  
   https://firebase.google.com/docs/functions/get-started
 
-7. **How to install backend on aws?**  
+8. **How to install backend on aws?**  
   Coming soon ...
 
-8. **Seeds Phrase**  
+9. **Seeds Phrase**  
   The Seeds Phrase is used to generate wallet address & make transfers of token and nft on the server-side.  
   We recommend using a Secret Manager to secure your Seeds Phrase or Private Key.  
   -- Google Cloud Secret Manager  
