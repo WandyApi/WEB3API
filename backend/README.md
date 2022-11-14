@@ -31,7 +31,7 @@
   - get the balance of SHIBA token  
   - transfer 1000 SHIBA token to a wallet
   <pre>
-  node version : v16.18.0, please install all the modules:  
+  node version : v16.18.0, please install all the modules for ethereum.js:
   - node i web3
   - node i bip39
   - node i ethereumjs-wallet
