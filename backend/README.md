@@ -76,8 +76,8 @@ WandyApi@BlackCat-MBP functions % node ethereum.js
   "gasFee": 694110421618377
 }
 </pre>
-[Check Balance](https://etherscan.io/address/0x057fc44d60f1d31f3401d9b2739c7f37365a2689)
-[Check Transaction](https://etherscan.io/tx/0x407c7fb1b4acbea48cceb749f2834b95441b25a40ec0e28119e1b6bad345cada)
+Check Balance - https://etherscan.io/address/0x057fc44d60f1d31f3401d9b2739c7f37365a2689  
+Check Transaction - https://etherscan.io/tx/0x407c7fb1b4acbea48cceb749f2834b95441b25a40ec0e28119e1b6bad345cada
   
 5. **How to call api on firebase?**  
   Please check the demo codes.
