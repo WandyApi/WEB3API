@@ -7,10 +7,10 @@ A free and fast Web3 Api & Demo which may help developers to build Web3 apps or 
 
 
 **Gas Fee**(Average) [11/11/2022](https://explorer.bitquery.io/)
-<pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW     4 - Polygen ... ...  
+<pre>0 - Solana    1 - Binance     2 - Ethereum     3 - EthereumPoW     4 - Polygon ... ...  
 0.000005 SOL   0.0006 BNB       0.002 ETH        0.004 ETHW         0.05 MATIC
   
-Ethereum > Binance > Polygen > EthereumPoW > Solana  
+Ethereum > Binance > Polygon > EthereumPoW > Solana  
 </pre>
 
 **Web3 App**  
