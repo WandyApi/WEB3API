@@ -38,7 +38,7 @@
   - node i bignumber.js
   - node i node-fetch
   - node i dotenv
-  </pre>
+</pre>
   <pre>
   async function getBalance(walletAddress, tokenAddress){  
   // exports.getBalance = async (req, res) => {
