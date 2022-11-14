@@ -27,7 +27,7 @@
   Each one has the capacity to handle millions of users.
 
 4. **Unit Test**  
-  Test web3 functions without installing the backend, here are the testing samples of Ethereum:  
+  Test web3 functions without installing the backend, here are the testing samples of Ethereum: get the balance of SHIBA Token and transfer 1000 SHIBA Token to a wallet.
   <pre>
   async function getBalance(walletAddress, tokenAddress){  
   // exports.getBalance = async (req, res) => {
@@ -55,6 +55,28 @@ transfer('mnemonic', '0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE', '0x5025b56d1f
      console.log(data);
    }
  );
+</pre>
+<pre>
+WandyApi@BlackCat-MBP functions % node ethereum.js
+{
+  "error": "",
+  "walletAddress": "0x057Fc44D60F1D31F3401d9B2739C7F37365A2689",
+  "tokenAddress": "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+  "balance": "10000000000000000090000"
+}
+
+
+{
+  "error": "",
+  "transactionHash": "0x407c7fb1b4acbea48cceb749f2834b95441b25a40ec0e28119e1b6bad345cada",
+  "tokenAddress": "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+  "fromAddress": "0x057fc44d60f1d31f3401d9b2739c7f37365a2689",
+  "toAddress": "0x5025b56d1f527EDaF39708B149A4FA322EA475eE",
+  "amount": 1e+21,
+  "gasPrice": "13381473687",
+  "gasUsed": 51871,
+  "gasFee": 694110421618377
+}
 </pre>
   
 5. **How to call api on firebase?**  
