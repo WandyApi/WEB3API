@@ -27,7 +27,9 @@
   Each one has the capacity to handle millions of users.
 
 4. **Unit Test**  
-  Test web3 functions without installing the backend, here are the testing samples of Ethereum: get the balance of SHIBA Token and transfer 1000 SHIBA Token to a wallet.
+  Test web3 functions without installing the backend, here are the testing samples of Ethereum:  
+  - get the balance of SHIBA token  
+  - transfer 1000 SHIBA token to a wallet
   <pre>
   async function getBalance(walletAddress, tokenAddress){  
   // exports.getBalance = async (req, res) => {
