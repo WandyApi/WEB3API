@@ -21,7 +21,7 @@
    
   
 3. **aws** - Build api on aws or your own cloud.  
-  aws supports more apis, please check the codes.
+  aws supports more apis, coming soon ...
     
   You can choose $\color[RGB]{255,66,66} One Of Them$ to be your own backend.   
   Each one has the capacity to handle millions of users.
