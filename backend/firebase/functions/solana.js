@@ -48,6 +48,7 @@ exports.getBalance = async (req, res) => {
   
     var result = {
       'error': '',
+      'walletAddress': walletAddress,
       'tokenAddress': tokenAddress,
       'balance': 0
     };
@@ -62,6 +63,7 @@ exports.getBalance = async (req, res) => {
         if(tokenAddress == tokenAddress2) {
           result = {
             'error': '',
+            'walletAddress': walletAddress,
             'tokenAddress': tokenAddress,
             'balance': Number(tokenAmount)
           };
@@ -75,6 +77,7 @@ exports.getBalance = async (req, res) => {
       const solBalance = await connection.getBalance( new solanaWeb3.PublicKey(walletAddress)); 
       result = {
         'error': '',
+        'walletAddress': walletAddress,
         'tokenAddress': 'SOL',
         'balance': Number(solBalance)
       };

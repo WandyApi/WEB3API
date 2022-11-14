@@ -51,6 +51,7 @@ exports.createAccount = (req, res) => {
     return myAccount;
 }
 
+// async function getBalance(walletAddress, tokenAddress){
 exports.getBalance = async (req, res) => {
     let walletAddress = req.walletAddress;
     let tokenAddress = req.tokenAddress;
@@ -76,6 +77,7 @@ exports.getBalance = async (req, res) => {
 
         let result = {
           'error': '',
+          'walletAddress': walletAddress,
           'tokenAddress': tokenAddress,
           'balance': balance
         };
@@ -90,6 +92,7 @@ exports.getBalance = async (req, res) => {
         
         let result = {
           'error': '',
+          'walletAddress': walletAddress,
           'tokenAddress': tokenAddress,
           'balance': balance
         };
@@ -101,6 +104,7 @@ exports.getBalance = async (req, res) => {
 
           let result = {
             'error': error.message,
+            'walletAddress': walletAddress,
             'tokenAddress': tokenAddress,
             'balance': 0
           };
@@ -111,8 +115,8 @@ exports.getBalance = async (req, res) => {
       }
 }
 
+// async function transfer(mnemonic, tokenAddress, toAddress, amount){
   exports.transfer = async (req, res) => {
-
     var mnemonic = req.mnemonic;
     var toAddress = req.toAddress;
     const tokenAddress = req.tokenAddress;
@@ -158,7 +162,6 @@ exports.getBalance = async (req, res) => {
         };
   
         var jsonResult = JSON.stringify(result, null, 2);
-        // console.log(jsonResult);
         return jsonResult;
   
       } catch(error) {
@@ -195,7 +198,6 @@ exports.getBalance = async (req, res) => {
         };
   
         var jsonResult = JSON.stringify(result, null, 2);
-        // console.log(jsonResult);
         return jsonResult;
   
       }
@@ -254,7 +256,6 @@ exports.getBalance = async (req, res) => {
         };
   
         var jsonResult = JSON.stringify(result, null, 2);
-        // console.log(jsonResult);
         return jsonResult;
   
       } catch(error) {
@@ -262,7 +263,7 @@ exports.getBalance = async (req, res) => {
         var errorMessage = error.message;
         var transactionHash = '';
         var gasUsed = 0;
-        
+
         if(errorMessage.includes('insufficient fund')){
           errorMessage = 'Insufficient funds for gas fee and value.';
         }
@@ -291,7 +292,6 @@ exports.getBalance = async (req, res) => {
         };
   
         var jsonResult = JSON.stringify(result, null, 2);
-        // console.log(jsonResult);
         return jsonResult;
       }
    }
@@ -572,3 +572,18 @@ function hex2dec(s) {
   });
   return dec;
 }
+
+// Unit Test
+// SHIBA Token https://etherscan.io/token/0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE
+// getBalance('0x057Fc44D60F1D31F3401d9B2739C7F37365A2689', '0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE').then(
+//   (data) => {
+//     console.log(data);
+//   }
+// );
+
+// Please fill the mnemonic
+// transfer('mnemonic', '0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE', '0x5025b56d1f527EDaF39708B149A4FA322EA475eE', 1000 * 1000000000000000000.00).then(
+//   (data) => {
+//     console.log(data);
+//   }
+// );
