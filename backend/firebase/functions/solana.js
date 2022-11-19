@@ -439,6 +439,11 @@ exports.transferNFT = async (req, res) => {
     }
 }
 
+
+async function getLastTransaction (walletAddress) {
+
+}
+
 //get all the tokens balance of an address, inlcude coins & nfts
 async function getTokensBalance (walletAddress) {
 

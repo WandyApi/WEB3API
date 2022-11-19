@@ -111,6 +111,10 @@ class Constants {
   static String walletAddress = '';
   static  List<String> networks = ['Solana', 'Binance', 'Ethereum', 'EthereumPoW'];
 
+  //Metamask connection varies
+  static var connector;
+  static var session;
+
   static List<List<TokenInfo>> tokens = [
     solanaTokens,
     binanceTokens,

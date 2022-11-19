@@ -143,4 +143,19 @@ class Utilities {
           );
         });
   }
+
+  int getNetworkId(chainId) {
+    switch (chainId) {
+      case 1:      //Ethereum
+        return 2;
+      case 56:     //Binance
+        return 1;
+      case 10001:  //EthereumPoW
+        return 3;
+      case 137:    //Polygon
+        return 4;
+      default:
+        return 0;
+    }
+  }
 }

@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_demo/screens/connect_metamask.dart';
 import 'package:flutter_demo/screens/create_wallet.dart';
 import 'package:flutter_demo/screens/get_balance.dart';
 import 'package:flutter_demo/screens/get_nfts.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.92'),
+      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.93'),
       routes: {
         CreateWalletScreen.id: (context) => CreateWalletScreen(),
         RetrieveWalletScreen.id: (context) => RetrieveWalletScreen(),
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         GetNFTsScreen.id: (context) => GetNFTsScreen(),
         TransferTokenScreen.id: (context) => TransferTokenScreen(),
         QueryPriceScreen.id: (context) => QueryPriceScreen(),
-        TransferNftScreen.id: (context) => TransferNftScreen()
+        TransferNftScreen.id: (context) => TransferNftScreen(),
+        ConnectMetamaskScreen.id: (context) => ConnectMetamaskScreen()
       }
     );
   }
@@ -85,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline6,
             ),
 
-        const SizedBox(height: 10),
+        const SizedBox(height: 6),
 
         SizedBox(
           height: 40,
@@ -116,13 +118,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onPressed: () async {
                     // create a new wallet
+                    await Navigator.pushNamed(context, ConnectMetamaskScreen.id);
+                    setState(() {
+
+                    });
+                  },
+                  child: const Text('Connect Metamask'),
+                )
+            ),
+
+            const SizedBox(height: 25),
+
+            SizedBox(
+                height: 40,
+                width: 200,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () async {
+                    // create a new wallet
                     Navigator.pushNamed(context, CreateWalletScreen.id);
                   },
                   child: const Text('Create Wallet'),
                 )
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
 
             SizedBox(
                 height: 40,
@@ -159,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
 
             SizedBox(
                 height: 40,
@@ -194,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             SizedBox(
                 height: 40,
                 width: 200,
@@ -228,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(height: 25),
             SizedBox(
                 height: 40,
                 width: 200,
