@@ -29,7 +29,7 @@ $\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk.
 :black_cat:**Black Cat Web3 Developer Club**:black_cat:  
 
 <pre>Build a community-driven club to help thousands of developers to realize their WEB3 dreams.   
-Join and start building right now.</pre>
+Join together and start building right now.</pre>
 
 Please purchase a pass to join the club. [Pass Link](https://opensea.io/collection/black-cat-web3-developer-club)
 
