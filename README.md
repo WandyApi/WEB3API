@@ -48,4 +48,4 @@ https://www.WandyApi.xyz
 
 #Buidlers, let us code the WEB3 world.
 
-:cherry_blossom::coffee::beers::racing_car::motor_boat::golfing::skier::dollar: 
+:coffee::beers::racing_car::motor_boat::golfing::skier::dollar: 
