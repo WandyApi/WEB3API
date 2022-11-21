@@ -48,5 +48,3 @@ Best Regards,
 https://www.WandyApi.xyz
 
 #Buidlers, let us code the WEB3 world.
-
-:coffee::beers::racing_car::motor_boat::golfing::skier::dollar: 
