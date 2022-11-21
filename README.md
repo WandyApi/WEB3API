@@ -35,6 +35,7 @@ Twitter Community: https://twitter.com/i/communities/1584793467749687296
 
 Telegram Community: https://t.me/blackcatweb3developerclub
 
+  
 :heart:**To Support Us**:heart:  
 
 Purchase a NFT pass from [Opensea](https://opensea.io/collection/black-cat-web3-developer-club)  
