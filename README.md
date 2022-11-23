@@ -35,6 +35,7 @@ Twitter Community: https://twitter.com/i/communities/1584793467749687296
 
 Telegram Community: https://t.me/blackcatweb3developerclub
 
+Wechat Community: https://www.wandyapi.xyz/static/media/bcw3dc_wechat.jpeg
   
 :heart:**To Support Us**:heart:  
 
