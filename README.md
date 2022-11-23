@@ -31,11 +31,11 @@ $\color[RGB]{255,66,66} BAYOR$ - Build At Your Own Risk.
 <pre>Build a community-driven club to help thousands of developers to realize their WEB3 dreams.   
 Join together and start building right now.</pre>
 
-Twitter Community: https://twitter.com/i/communities/1584793467749687296
+[Twitter Community](https://twitter.com/i/communities/1584793467749687296)
 
-Telegram Community: https://t.me/blackcatweb3developerclub
+[Telegram Community](https://t.me/blackcatweb3developerclub)
 
-Wechat Community: https://www.wandyapi.xyz/static/media/bcw3dc_wechat.jpeg
+[Wechat Community](https://www.wandyapi.xyz/static/media/bcw3dc_wechat.jpeg)
   
 :heart:**To Support Us**:heart:  
 
