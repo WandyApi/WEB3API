@@ -4,12 +4,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/constants.dart';
-import 'package:flutter_demo/token_info.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../api_calls.dart';
 import '../nft_info.dart';
 import '../utilities.dart';
+
 
 class TransferNftScreen extends StatefulWidget {
   static const String id = "/transfer_nft";
@@ -31,7 +31,7 @@ class _TransferNftScreenState extends State<TransferNftScreen> {
   @override
   void initState() {
     super.initState();
-    // transferNft();
+    transferNft();
   }
 
 
@@ -39,21 +39,33 @@ class _TransferNftScreenState extends State<TransferNftScreen> {
 
     Future.delayed(const Duration(milliseconds: 100), () async {
 
-      Utilities().showLoadingDialog(context);
-
       //Please fill the seedsPhrase to transfer nftInfo
+      Utilities().showLoadingDialog(context);
       String seedsPhrase = '';
-      String toAddress = '0x5025b56d1f527EDaF39708B149A4FA322EA475eE';
 
-      hash = await ApiCalls().transferNFT(2, seedsPhrase, toAddress, nftInfo, 1);
-      if (kDebugMode) {
-        print('https://etherscan.io/tx/$hash');
-        //https://etherscan.io/tx/0xc74b19dee86553b194a2e8f177491e6dee186d6eb2aa845947a3ba7740184262
+      if(seedsPhrase.isNotEmpty) {
+        String toAddress = '0x5025b56d1f527EDaF39708B149A4FA322EA475eE';
+
+        hash =
+        await ApiCalls().transferNFT(2, seedsPhrase, toAddress, nftInfo, 1);
+        if (kDebugMode) {
+          print('https://etherscan.io/tx/$hash');
+          //https://etherscan.io/tx/0xc74b19dee86553b194a2e8f177491e6dee186d6eb2aa845947a3ba7740184262
+        }
+      } else {
+        Fluttertoast.showToast(
+            msg: "Please fill the seeds phrase.",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
       }
 
       Navigator.of(context).pop();
       setState(() {
-
       });
 
     });

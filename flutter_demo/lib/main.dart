@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.93'),
+      home: const MyHomePage(title: 'WandyApi Flutter Demo V0.94'),
       routes: {
         CreateWalletScreen.id: (context) => CreateWalletScreen(),
         RetrieveWalletScreen.id: (context) => RetrieveWalletScreen(),
@@ -313,7 +313,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               );
             }),
-
 
             actions: <Widget>[
               TextButton(
