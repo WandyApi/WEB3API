@@ -1,7 +1,7 @@
 ## Flutter Demo of WandyApi  -- Support Android & iOS  
   The demo is a simple sample to show you how to call the backend (Web3.js and 3rd party services of NFT metadata) and Metamask App.
 
-**1. Dowload Demo** ![APK](flutter_demo_debug_v0.93.apk)
+**1. Dowload Demo** ![APK](flutter_demo_debug_v0.94.apk)
   
 **2. Screenshots**  
 ![Screenshot](screenshots/Screenshot_1.png)
