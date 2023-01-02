@@ -1,0 +1,2 @@
+// https://etherscan.io/
+export const ETHERSCAN_API_KEY = 'EXJ1MD9XC5KC6VX1W3CHZHKX17J9JEJKEG';
